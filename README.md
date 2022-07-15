@@ -2,5 +2,6 @@
 
 # Imagenes
 
-![Books Table](https://user-images.githubusercontent.com/53313625/179322128-dda266fd-4bc1-4889-94d9-f623de9cdadd.png)
+![Tabla Libros con Command Line](https://user-images.githubusercontent.com/53313625/179322557-0a71c2da-b9af-4ceb-b5fd-4ebe02d98231.png)
+
 
