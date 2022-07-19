@@ -1,3 +1,5 @@
+Usando mi BD platzi_operation
+
 La consola de MySQL
 6/25
 
@@ -148,7 +150,24 @@ created_at: 2018-04-09 16:51:30
 updated_at: 2022-07-18 17:23:40
 1 row in set (0.00 sec)
 
-nunca usarlo
+Inserción de datos usando queries anidados
+14/25
 
+El Laberinto de la Soledad, Octavio Paz, 1952
+
+select * from authors;
+select * from books\G;
+
+ALTER TABLE table_name RENAME COLUMN old_column_name TO new_column_name;
+ALTER TABLE books RENAME COLUMN author TO author_id;
+
+INSERT INTO books(title, author_id) VALUES ('El Laberinto de la Soledad',1);
+
+Vuelta al Laberinto de la Soledad, Octavio Paz, 1960
+
+INSERT INTO books (title, author_id, year) 
+VALUES ('Vuelta al laberinto de la Soledad',
+(SELECT author_id FROM authors WHERE name = 'German' LIMIT 1), 
+1960);
 
 
