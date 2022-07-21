@@ -479,4 +479,5 @@ mysqldump -u root -p -d cursoplatzi | more
 
 mysqldump -u root -p -d cursoplatzi > esquema.sql
 
+Bases de datos para Big Data Clase 25
 
