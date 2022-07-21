@@ -1,0 +1,3 @@
+<UPDATE books 
+  SET price = FLOOR(RAND()*(35-10+1))+10
+  WHERE book_id between 1 and 198 >
