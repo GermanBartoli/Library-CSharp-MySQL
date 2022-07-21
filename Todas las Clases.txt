@@ -170,4 +170,313 @@ VALUES ('Vuelta al laberinto de la Soledad',
 (SELECT author_id FROM authors WHERE name = 'German' LIMIT 1), 
 1960);
 
+Bash y archivos SQL
+15/25
+
+mysql -u root -p < all_schema.sql
+
+show databases;
+
+use cursoplatzi;
+show tables;
+
+mysql -u root -p -D cursoplatzi < all_data.sql
+
+Usando bd cursoplatzi
+
+Su majestad el SELECT
+16/25
+
+-- Consultas copiadas por Emerson Y
+
+-- Listar todas la tuplas de la tabla clients
+SELECT * FROM clients;
+
+-- Listar todos los nombres de la tabla clients
+SELECT name FROM clients;
+
+-- Listar todos los nombres, email y género de la tabla clients
+SELECT name, email, gender FROM clients;
+
+-- Listar los 10 primeros resultados de la tabla clients
+SELECT name, email, gender FROM clients LIMIT 10;
+
+-- Listar todos los clientes de género Masculino
+SELECT name, email, gender FROM clients WHERE gender = 'M';
+
+-- Listar el año de nacimientos de los clientes, con la función YEAR()
+SELECT YEAR(birthdate) FROM clients;
+
+-- Mostrar el año actual
+SELECT YEAR(NOW());
+
+-- Listar los 10 primeros resultados de las edades de los clientes
+SELECT YEAR(NOW()) - YEAR(birthdate) FROM clients LIMIT 10;
+
+-- Listar nombre y edad de los 10 primeros clientes
+SELECT name, YEAR(NOW()) - YEAR(birthdate) FROM clients LIMIT 10;
+
+-- Listar clientes que coincidan con el nombre de "Saave"
+SELECT * FROM clients WHERE name LIKE '%Saave%';
+
+-- Listar clientes (nombre, email, edad y género). con filtro de genero = F y nombre que coincida con 'Lop'
+--Usando alias para nombrar la función como 'edad'
+SELECT name, email, YEAR(NOW()) - YEAR(birthdate) AS edad, gender FROM clients WHERE gender = 'F' AND name LIKE '%Lop%';
+
+Comando JOIN
+17/25
+
+select count(*) from books;
+select count(*) from authors;
+
+-- Listar todos los autores con ID entre 1 y 5 con los filtro mayor y menor igual
+SELECT * FROM authors WHERE author_id > 0 AND author_id <= 5;
+
+-- Listar todos los autores con ID entre 1 y 5 con el filtro BETWEEN
+SELECT * FROM authors WHERE author_id BETWEEN 1 AND 5;
+
+-- Listar los libros con filtro de author_id entre 1 y 5
+SELECT book_id, author_id, title FROM books WHERE author_id BETWEEN 1 AND 5;
+
+-- Listar nombre y titulo de libros mediante el JOIN de las tablas books y authors
+SELECT b.book_id, a.name, a.author_id, b.title
+FROM books AS b
+JOIN authors AS a
+  ON a.author_id = b.author_id
+WHERE a.author_id BETWEEN 1 AND 5;
+
+-- Listar transactions con detalle de nombre, titulo y tipo. Con los filtro genero = F y tipo = Vendido.
+-- Haciendo join entre transactions, books y clients.
+SELECT c.name, b.title, t.type
+FROM transactions AS t
+JOIN books AS b
+  ON t.book_id = b.book_id
+JOIN clients AS c
+  ON t.client_id = c.client_id
+WHERE c.gender = 'F'
+  AND t.type = 'sell';
+
+-- Listar transactions con detalle de nombre, titulo, autoor y tipo. Con los filtro genero = M y de tipo = Vendido y Devuelto.
+-- Haciendo join entre transactions, books, clients y authors.
+SELECT c.name, b.title, a.name, t.type
+FROM transactions AS t
+JOIN books AS b
+  ON t.book_id = b.book_id
+JOIN clients AS c
+  ON t.client_id = c.client_id
+JOIN authors AS a
+  ON b.author_id = a.author_id
+WHERE c.gender = 'M'
+  AND t.type IN ('sell', 'lend');
+
+Left JOIN
+18/25
+
+-- Uso del JOIN implícito
+SELECT b.title, a.name
+FROM authors AS a, books AS b
+WHERE a.author_id = b.author_id
+LIMIT 10;
+
+-- Uso del JOIN explícito
+SELECT b.title, a.name
+FROM books AS b
+INNER JOIN authors AS a
+  ON a.author_id = b.author_id
+LIMIT 10;
+
+--  JOIN y order by (por defecto es ASC)
+SELECT a.author_id, a.name, a.nationality, b.title
+FROM authors AS a
+JOIN books AS b
+  ON b.author_id = a.author_id
+WHERE a.author_id BETWEEN 1 AND 5
+ORDER BY a.author_id DESC;
+
+-- LEFT JOIN para traer datos incluso que no existen, como el caso del author_id = 4 que no tene ningún libro registrado.
+SELECT a.author_id, a.name, a.nationality, b.title
+FROM authors AS a
+LEFT JOIN books AS b
+  ON b.author_id = a.author_id
+WHERE a.author_id BETWEEN 1 AND 5
+ORDER BY a.author_id;
+
+-- Contar número de libros tiene un autor.
+-- Con COUNT (contar), es necesario tener un GROUP BY (agrupado por un criterio)
+SELECT a.author_id, a.name, a.nationality, COUNT(b.book_id)
+FROM authors AS a
+LEFT JOIN books AS b
+  ON b.author_id = a.author_id
+WHERE a.author_id BETWEEN 1 AND 5
+GROUP BY a.author_id
+ORDER BY a.author_id;
+
+Continuación de casos de negocio
+21/25
+
+-- 4. ¿Cuál es el promedio/desviación standard del precio de libros?
+SELECT a.nationality,  
+  AVG(b.price) AS promedio, 
+  STDDEV(b.price) AS std 
+FROM books AS b
+JOIN authors AS a
+  ON a.author_id = b.author_id
+GROUP BY a.nationality
+ORDER BY promedio DESC;
+
+-- 5. ¿Cuál es el promedio/desviación standard del precio de libros por nacionalidad?
+-- Agrupar por la columna pivot
+SELECT a.nationality,
+  COUNT(b.book_id) AS libros,  
+  AVG(b.price) AS promedio, 
+  STDDEV(b.price) AS std 
+FROM books AS b
+JOIN authors AS a
+  ON a.author_id = b.author_id
+GROUP BY a.nationality
+ORDER BY libros DESC;
+
+-- 6. ¿Cuál es el precio máximo/mínimo de un libro?
+SELECT nationality, MAX(price), MIN(price)
+FROM books AS b
+JOIN authors AS a
+  ON a.author_id = b.author_id
+GROUP BY nationality;
+
+-- 7. ¿cómo quedaría el reporte de préstamos?
+-- CONCAT: para concatenar en cadenas de texto.
+-- TO_DAYS: recibe un timestamp ó un datetime
+SELECT 
+	c.name AS client_name, 
+	t.type, 
+	b.title, 
+	CONCAT(a.name, " (", a.nationality, ")") AS autor + nationality,
+	TO_DAYS(NOW()) - TO_DAYS(t.created_at) AS ago
+FROM transactions AS t
+LEFT JOIN clients AS c
+  ON c.client_id = t.client_id
+LEFT JOIN books AS b
+  ON b.book_id = t.book_id
+LEFT JOIN authors AS a
+  ON b.author_id = a.author_id;
+  
+SELECT TO_DAYS(NOW()) trae los días desde el día 0 del año cero hasta hoy.
+
++----------------+
+| TO_DAYS(NOW()) |
++----------------+
+|         738721 |
++----------------+
+1 row in set (0.00 sec)
+
+SELECT TO_DAYS('0000-01-01'); el día uno
+
++-----------------------+
+| TO_DAYS('0000-01-01') |
++-----------------------+
+|                     1 |
++-----------------------+
+1 row in set (0.00 sec)
+
+-- Tiempo que paso desde el día 0 hasta su cumpleaños
+SELECT name, 
+TO_DAYS(birthdate) 
+from clients;
+
+-- Tiempo que vivió el cliente
+SELECT name, 
+TO_DAYS(NOW()) - TO_DAYS(birthdate)
+from clients;
+
+Comandos UPDATE Y DELETE
+22/25
+
+select * from authors order by rand() limit 10;
+
+-- DELETE: borra el registro.
+-- Adicionalmente filtrar con WHERE por id y limitarlo.
+DELETE FROM authors WHERE author_id = 161 LIMIT 1;
+
+-- UPDATE: actualizar datos de una tupla existente.
+-- También se debe filtrar con WHERE
+UPDATE clients
+SET active = 0
+WHERE client_id = 80
+LIMIT 1;
+
+SELECT client_id, name, active 
+FROM clients
+WHERE client_id IN (1,6,8,27,90)
+  OR NAME like '%Lopez%';
+
+UPDATE clients
+SET active = 0
+WHERE client_id IN (1,6,8,27,90)
+  OR NAME like '%Lopez%';
+
+
+-- TRUNCATE: Borra todo el contenido de una tabla
+TRUNCATE transactions;
+
+select client_id, name from clients order by rand() limit 10; en está sentencia RAND() permite ordenar de forma aleatoria, no recomendado hacerlo en producción.
+select client_id, name from clients where active <> 1; en donde <> significa que es diferente
+
+Super Querys
+23/25
+
+select distinct nationality from authors;
+select count(book_id), sum(1) from books;
+
+select sum(price) from books where sellable=1;
+select sum(price*copies) from books where sellable=1;
+select sellable,sum(price*copies) from books group by sellable;
+
+
+-- SUM(), para sumar cada valor(1) en una tupla
+SELECT 
+  COUNT(book_id), 
+  SUM(IF(year < 1950, 1, 0)) AS `<1950`,
+  SUM(IF(year < 1950, 0, 1)) AS ` >1950`, 
+  SUM(IF(year >= 1950 AND year < 1990, 1, 0)) AS `<1990`,
+  SUM(IF(year >= 1990 AND year < 2000, 1, 0)) AS `<2000`,
+  SUM(IF(year >= 2000, 1, 0)) AS `<hoy`
+FROM books;
+
+-- Agrupar el query anterior y mostrar su nacionalidad
+SELECT 
+  nationality,
+  COUNT(book_id), 
+  SUM(IF(year < 1950, 1, 0)) AS `<1950`,
+  SUM(IF(year >= 1950 AND year < 1990, 1, 0)) AS `<1990`,
+  SUM(IF(year >= 1990 AND year < 2000, 1, 0)) AS `1990 <= year <2000`,
+  SUM(IF(year >= 2000, 1, 0)) AS `<hoy`
+FROM books AS b
+JOIN authors AS a
+  ON a.author_id = b.author_id
+WHERE a.nationality IS NOT NULL
+
+GROUP BY nationality;
+
+Comando mysqldump
+24/25
+
+alter table authors add column birthyear integer default 1930 after name 
+
+desc authors;
+
+alter table authors modify column birthyear year default 1920;
+
+alter table authors drop column birthyear;
+
+show tables like '%i%'
+
+mysqldump -u root -p cursoplatzi 
+
+sin datos
+mysqldump -u root -p -d cursoplatzi 
+ 
+mysqldump -u root -p -d cursoplatzi | more
+
+mysqldump -u root -p -d cursoplatzi > esquema.sql
+
 
