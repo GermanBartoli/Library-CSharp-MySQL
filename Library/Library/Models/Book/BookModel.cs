@@ -16,7 +16,18 @@ namespace Library.Models.Book
         private string description;
         private bool active;
 
-        public BookModel(int book_id, AuthorModel author, string title, DateTime year, string language, string cover_url, double price, bool sellable, int copies, string description, bool active)
+        public BookModel(
+            int book_id,
+            AuthorModel author,
+            string title,
+            DateTime year,
+            string language,
+            string cover_url,
+            double price,
+            bool sellable,
+            int copies,
+            string description,
+            bool active)
         {
             this.book_id = book_id;
             this.author = author;
