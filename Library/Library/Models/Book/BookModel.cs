@@ -4,17 +4,17 @@ namespace Library.Models.Book
 {
     public class BookModel
     {
-        private int book_id;
-        private AuthorModel author;
-        private string title;
+        private int book_id = 0;
+        private AuthorModel author = new();
+        private string title = "";
         private DateTime year;
-        private string language;
-        private string cover_url;
-        private double price;
-        private bool sellable;
-        private int copies;
-        private string description;
-        private bool active;
+        private string language = "";
+        private string cover_url = "";
+        private double price = 0;
+        private bool sellable = false;
+        private int copies = 0;
+        private string description = "";
+        private bool active = false;
 
         public BookModel(
             int book_id,
@@ -40,6 +40,10 @@ namespace Library.Models.Book
             this.copies = copies;
             this.description = description;
             this.active = active;
+        }
+
+        public BookModel()
+        {
         }
 
         public int Book_id { get => book_id; set => book_id = value; }

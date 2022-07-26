@@ -2,7 +2,7 @@
 {
     public class AuthorModel
     {
-        private int author_id;
+        private int author_id = 0;
         private string name = "";
         private string nationality = "";
         private bool active = false;
@@ -16,6 +16,10 @@
             this.Name = name;
             this.Nationality = nationality;
             this.Active = active;
+        }
+
+        public AuthorModel()
+        {
         }
 
         public int Author_id { get => author_id; set => author_id = value; }
