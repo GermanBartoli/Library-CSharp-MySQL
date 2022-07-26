@@ -13,6 +13,7 @@ namespace Library.Models.Client
         private DateTime birthdate;
         private Gender gender = 0;
         private DateTime create_at;
+        private DateTime update_at;
         private Boolean active = false;
 
         private enum Gender
