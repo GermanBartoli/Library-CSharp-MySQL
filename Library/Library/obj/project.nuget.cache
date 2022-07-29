@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jABBsJKmhU66NofOW39fxzo+yevj6mgij0dH64mpSZnxX2bV9zb7+04ZPneka7WFLlOaP1S5O/46V9RWZPZzzg==",
+  "dgSpecHash": "yE6xZg0vwqVbSem+smk4sVntIV+xrOZuok22whZPO7CKsE/Vf4YrFkMLl6zfbJEefiB1pAoc2zXlkuyXkpiooA==",
   "success": true,
   "projectFilePath": "C:\\Users\\German\\Documents\\GitHub\\Curso-Introduccion-MySQL-Platzi\\Library\\Library\\Library.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\German\\.nuget\\packages\\mysqlconnector\\2.1.11\\mysqlconnector.2.1.11.nupkg.sha512"
+  ],
   "logs": []
 }
