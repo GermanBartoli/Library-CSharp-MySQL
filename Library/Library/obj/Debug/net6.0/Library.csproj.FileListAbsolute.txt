@@ -11,7 +11,6 @@ C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.AssemblyInfoInputs.cache
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.AssemblyInfo.cs
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.csproj.CoreCompileInputs.cache
-C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.RazorAssemblyInfo.cache
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.RazorAssemblyInfo.cs
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\staticwebassets.build.json
@@ -24,3 +23,5 @@ C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.pdb
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.genruntimeconfig.cache
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\ref\Library.dll
+C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.csproj.CopyComplete
