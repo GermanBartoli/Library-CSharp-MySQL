@@ -1,3 +1,7 @@
+using BitsionFicticiaSA.Models;
+
+GestorBDConexion.ConexionString = "Server=localhost;user=root;password=1234;database=libreriaplatzi";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
