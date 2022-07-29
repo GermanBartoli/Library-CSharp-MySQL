@@ -45,9 +45,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "MySqlConnector >= 2.1.11"
-    ]
+    "net6.0": ["MySqlConnector >= 2.1.11"]
   },
   "packageFolders": {
     "C:\\Users\\German\\.nuget\\packages\\": {}
@@ -65,9 +63,7 @@
         "C:\\Users\\German\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
-      "originalTargetFrameworks": [
-        "net6.0"
-      ],
+      "originalTargetFrameworks": ["net6.0"],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
@@ -79,9 +75,7 @@
         }
       },
       "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
+        "warnAsError": ["NU1605"]
       }
     },
     "frameworks": {
@@ -93,14 +87,7 @@
             "version": "[2.1.11, )"
           }
         },
-        "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
-        ],
+        "imports": ["net461", "net462", "net47", "net471", "net472", "net48"],
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
