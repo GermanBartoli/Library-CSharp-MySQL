@@ -14,6 +14,8 @@ namespace Library.Models.Book
         private bool sellable = false;
         private int copies = 0;
         private string description = "";
+        private DateTime created_at;
+        private DateTime updated_at;
         private bool active = false;
 
         public BookModel(
@@ -27,6 +29,8 @@ namespace Library.Models.Book
             bool sellable,
             int copies,
             string description,
+            DateTime created_at,
+            DateTime updated_at,
             bool active)
         {
             this.book_id = book_id;
@@ -39,6 +43,8 @@ namespace Library.Models.Book
             this.sellable = sellable;
             this.copies = copies;
             this.description = description;
+            this.created_at = created_at;
+            this.updated_at = updated_at;
             this.active = active;
         }
 
@@ -56,6 +62,8 @@ namespace Library.Models.Book
         public bool Sellable { get => sellable; set => sellable = value; }
         public int Copies { get => copies; set => copies = value; }
         public string Description { get => description; set => description = value; }
+        public DateTime Created_at { get => created_at; set => created_at = value; }
+        public DateTime Updated_at { get => updated_at; set => updated_at = value; }
         public bool Active { get => active; set => active = value; }
     }
 }
