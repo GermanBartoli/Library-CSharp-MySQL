@@ -1,6 +1,4 @@
-﻿namespace Library.Models.DTO
+﻿namespace Library.Models.DTO;
+public class DTOModel
 {
-    public class DTOModel
-    {
-    }
 }
