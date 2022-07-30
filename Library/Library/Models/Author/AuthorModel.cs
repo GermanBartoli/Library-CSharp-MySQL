@@ -7,7 +7,6 @@ public class AuthorModel
     private DateTime create_at;
     private DateTime updated_at;
     private bool active = false;
-
     public AuthorModel(
         int author_id,
         string name,
