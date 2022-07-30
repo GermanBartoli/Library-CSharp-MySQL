@@ -1,30 +1,28 @@
-﻿namespace Library.Models.Author
+﻿namespace Library.Models.Author;
+public class AuthorModel
 {
-    public class AuthorModel
+    private int author_id = 0;
+    private string name = "";
+    private string nationality = "";
+    private bool active = false;
+
+    public AuthorModel(int author_id,
+                       string name,
+                       string nationality,
+                       bool active)
     {
-        private int author_id = 0;
-        private string name = "";
-        private string nationality = "";
-        private bool active = false;
-
-        public AuthorModel(int author_id,
-                           string name,
-                           string nationality,
-                           bool active)
-        {
-            this.Author_id = author_id;
-            this.Name = name;
-            this.Nationality = nationality;
-            this.Active = active;
-        }
-
-        public AuthorModel()
-        {
-        }
-
-        public int Author_id { get => author_id; set => author_id = value; }
-        public string Name { get => name; set => name = value; }
-        public string Nationality { get => nationality; set => nationality = value; }
-        public bool Active { get => active; set => active = value; }
+        this.Author_id = author_id;
+        this.Name = name;
+        this.Nationality = nationality;
+        this.Active = active;
     }
+
+    public AuthorModel()
+    {
+    }
+
+    public int Author_id { get => author_id; set => author_id = value; }
+    public string Name { get => name; set => name = value; }
+    public string Nationality { get => nationality; set => nationality = value; }
+    public bool Active { get => active; set => active = value; }
 }
