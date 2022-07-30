@@ -8,12 +8,13 @@ public class AuthorModel
     private DateTime updated_at;
     private bool active = false;
 
-    public AuthorModel(int author_id,
-                       string name,
-                       string nationality,
-                       DateTime create_at,
-                       DateTime updated_at,
-                       bool active)
+    public AuthorModel(
+        int author_id,
+        string name,
+        string nationality,
+        DateTime create_at,
+        DateTime updated_at,
+        bool active)
     {
         this.author_id = author_id;
         this.name = name;
