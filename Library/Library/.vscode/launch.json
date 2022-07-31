@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net6.0/Libreria.dll",
+            "program": "${workspaceFolder}/bin/Debug/net6.0/Library.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
@@ -24,6 +24,5 @@
                 "/Views": "${workspaceFolder}/Views"
             }
         }
-
     ]
 }
