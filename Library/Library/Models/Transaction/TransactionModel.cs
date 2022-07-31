@@ -2,16 +2,14 @@ using Library.Models.Book;
 using Library.Models.Client;
 
 namespace Library.Models.Transaction;
-
-private enum Estate { Lend, Sell, Return };
-
 public class TransactionModel
 {
     private int transaction_id = 0;
     private BookModel book = new();
     private ClientModel client = new();
     private DateTime date;
-    private Estate estate;
+    public enum EstateTransaction { Lend, Sell, Return };
+    private EstateTransaction estate;
     private DateTime created_at;
     private DateTime updated_at;
     private bool finished = 0;
@@ -32,7 +30,7 @@ public class TransactionModel
         this.book = book;
         this.client = client;
         this.date = date;
-        this.Estate1 = estate;
+        this.estate = estate;
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.finished = finished;
@@ -51,5 +49,5 @@ public class TransactionModel
     public DateTime Updated_at { get => updated_at; set => updated_at = value; }
     public bool Finished { get => finished; set => finished = value; }
     public bool Active { get => active; set => active = value; }
-    private Estate Estate { get => estate; set => estate = value; }
+    private EstateTransaction Estate { get => estate; set => estate = value; }
 }
