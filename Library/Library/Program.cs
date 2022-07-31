@@ -1,6 +1,6 @@
-using BitsionFicticiaSA.Models;
+using Library.Models;
 
-GestorBDConexion.ConexionString = "Server=localhost;user=root;password=1234;database=libreriaplatzi";
+DBMConection.ConectionString = "Server=localhost;user=root;password=1234;database=libreriaplatzi";
 
 var builder = WebApplication.CreateBuilder(args);
 
