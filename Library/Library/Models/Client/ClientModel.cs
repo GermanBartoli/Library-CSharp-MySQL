@@ -5,6 +5,7 @@ namespace Library.Models.Client;
 public class ClientModel
 {
     private int client_id = 0;
+    private MartialStatusModel martial_status = new();
     private string name = "";
 
     [Required]
