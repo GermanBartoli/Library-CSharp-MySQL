@@ -1,0 +1,16 @@
+using Library.Models.Client;
+using MySqlConnector;
+
+namespace Library.Models.DBMClient;
+
+public class DBMClient
+{
+    public List<ClientModel> LoadListClient()
+    {
+        List<ClientModel> clientList = new List<ClientModel>();
+
+        MySqlConnection conexion = new MySqlConnection(DBMConection.ConectionString);
+
+        return clientList;
+    }
+}
