@@ -8,7 +8,7 @@ public class TransactionModel
     private BookModel book = new();
     private ClientModel client = new();
     private DateTime date;
-    public enum EstateTransaction { Lend, Sell, Return };
+    private enum EstateTransaction { Lend, Sell, Return };
     private EstateTransaction estate;
     private DateTime created_at;
     private DateTime updated_at;
@@ -20,7 +20,7 @@ public class TransactionModel
         BookModel book,
         ClientModel client,
         DateTime date,
-        Estate estate,
+        EstateTransaction estate,
         DateTime created_at,
         DateTime updated_at,
         bool finished,
