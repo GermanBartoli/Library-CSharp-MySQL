@@ -2,18 +2,22 @@ using Library.Models.Book;
 using Library.Models.Client;
 
 namespace Library.Models.Transaction;
+
 public class TransactionModel
 {
     private int transaction_id = 0;
     private BookModel book = new();
     private ClientModel client = new();
     private DateTime date;
-    private enum EstateTransaction { Lend, Sell, Return };
+
+    public enum EstateTransaction
+    { Lend, Sell, Return };
+
     private EstateTransaction estate;
     private DateTime created_at;
     private DateTime updated_at;
-    private bool finished = 0;
-    private bool active = 1;
+    private bool finished = false;
+    private bool active = false;
 
     public TransactionModel(
         int transaction_id,
