@@ -10,7 +10,6 @@ public class DBMClient
 
         MySqlConnection connection = new MySqlConnection(DBMConection.ConectionString);
 
-
         return clientList;
     }
 }

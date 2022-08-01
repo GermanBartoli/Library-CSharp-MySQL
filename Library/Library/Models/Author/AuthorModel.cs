@@ -1,4 +1,5 @@
 ﻿namespace Library.Models.Author;
+
 public class AuthorModel
 {
     private int author_id = 0;
@@ -7,6 +8,7 @@ public class AuthorModel
     private DateTime create_at;
     private DateTime updated_at;
     private bool active = false;
+
     public AuthorModel(
         int author_id,
         string name,
@@ -22,9 +24,11 @@ public class AuthorModel
         this.updated_at = updated_at;
         this.active = active;
     }
+
     public AuthorModel()
     {
     }
+
     public int Author_id { get => author_id; set => author_id = value; }
     public string Name { get => name; set => name = value; }
     public string Nationality { get => nationality; set => nationality = value; }

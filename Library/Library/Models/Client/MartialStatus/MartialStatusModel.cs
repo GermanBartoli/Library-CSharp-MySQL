@@ -13,7 +13,6 @@ public class MartialStatusModel
 
     public MartialStatusModel()
     {
-
     }
 
     public int Martial_status_id { get => martial_status_id; set => martial_status_id = value; }

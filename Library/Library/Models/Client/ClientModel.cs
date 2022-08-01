@@ -12,7 +12,10 @@ public class ClientModel
     private string email = "";
 
     private DateTime birthdate;
-    public enum GenderClient { M, F };
+
+    public enum GenderClient
+    { M, F };
+
     private GenderClient gender;
     private DateTime create_at;
     private DateTime update_at;
@@ -33,7 +36,6 @@ public class ClientModel
 
     public ClientModel()
     {
-
     }
 
     public int Client_id { get => client_id; set => client_id = value; }
