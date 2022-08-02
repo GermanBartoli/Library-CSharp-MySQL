@@ -1,6 +1,6 @@
 using Library.Models;
 
-DBMConection.ConectionString = "Server=localhost;user=root;password=1234;database=libreriaplatzi";
+DBMConnection.ConnectionString = "Server=localhost;user=root;password=1234;database=libreriaplatzi";
 
 var builder = WebApplication.CreateBuilder(args);
 
