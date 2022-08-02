@@ -2,7 +2,7 @@
 
 namespace Library.Models.Client;
 
-public class ClientModel
+public partial class ClientModel
 {
     private int client_id = 0;
     private MartialStatusModel martial_status = new();
@@ -12,16 +12,21 @@ public class ClientModel
     private string email = "";
 
     private DateTime birthdate;
-
-    public enum GenderClient
-    { M, F };
-
-    private GenderClient gender;
-    private DateTime create_at;
-    private DateTime update_at;
+    private string gender = "";
+    private DateTime created_at;
+    private DateTime updated_at;
     private Boolean active = false;
 
-    public ClientModel(int client_id, MartialStatusModel martial_status, string name, string email, DateTime birthdate, GenderClient gender, DateTime create_at, DateTime update_at, bool active)
+    public ClientModel(
+        int client_id,
+        MartialStatusModel martial_status,
+        string name,
+        string email,
+        DateTime birthdate,
+        string gender,
+        DateTime created_at,
+        DateTime updated_at,
+        bool active)
     {
         this.client_id = client_id;
         this.martial_status = martial_status;
@@ -29,8 +34,8 @@ public class ClientModel
         this.email = email;
         this.birthdate = birthdate;
         this.gender = gender;
-        this.create_at = create_at;
-        this.update_at = update_at;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
         this.active = active;
     }
 
@@ -43,8 +48,8 @@ public class ClientModel
     public string Name { get => name; set => name = value; }
     public string Email { get => email; set => email = value; }
     public DateTime Birthdate { get => birthdate; set => birthdate = value; }
-    public GenderClient Gender { get => gender; set => gender = value; }
-    public DateTime Create_at { get => create_at; set => create_at = value; }
-    public DateTime Update_at { get => update_at; set => update_at = value; }
+    public string Gender { get => gender; set => gender = value; }
+    public DateTime Created_at { get => created_at; set => created_at = value; }
+    public DateTime Updated_at { get => updated_at; set => updated_at = value; }
     public bool Active { get => active; set => active = value; }
 }
