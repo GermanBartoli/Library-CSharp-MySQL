@@ -44,7 +44,7 @@ public partial class ClientModel
     {
     }
 
-    public int Client_id { get => client_id; set => client_id = value; }
+    public int Client_Id { get => client_id; set => client_id = value; }
     public MartialStatusModel Martial_Status { get => martial_status; set => martial_status = value; }
     public string Name { get => name; set => name = value; }
     public string Email { get => email; set => email = value; }
