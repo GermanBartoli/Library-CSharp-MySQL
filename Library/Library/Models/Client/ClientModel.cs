@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Library.Models.Client.MartialStatus;
 
 namespace Library.Models.Client;
 
