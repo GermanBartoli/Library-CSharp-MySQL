@@ -1,11 +1,11 @@
 using System.Data;
+using Library.Models.Client.MartialStatus;
 using MySqlConnector;
 
 namespace Library.Models.Client.DBMClient;
-
 public class DBMClient
 {
-    public List<ClientModel> LoadListClient()
+    public List<ClientModel> LoadClientList()
     {
         List<ClientModel> clientList = new List<ClientModel>();
 
@@ -15,7 +15,7 @@ public class DBMClient
                 @"SELECT
                   clients.client_id AS client_id,
                   martialstatus.martial_status_id AS martial_status_id,
-                  martialstatus.description AS description,
+                  martialstatus.description AS martial_status_description,
                   clients.name AS name,
                   clients.email AS email,
                   clients.birthdate AS birthdate,
@@ -45,14 +45,14 @@ public class DBMClient
 
             MartialStatusModel martialStatus = new();
             martialStatus.Martial_status_id = Convert.IsDBNull(reader.GetValue("martial_status_id")) ? 0 : reader.GetInt32("martial_status_id");
-            martialStatus.Description = Convert.IsDBNull(reader.GetValue("description")) ? string.Empty : reader.GetString("description");
+            martialStatus.Description = Convert.IsDBNull(reader.GetValue("martial_status_description")) ? string.Empty : reader.GetString("martial_status_description");
             client.Martial_Status = martialStatus;
 
-            client.Name = Convert.IsDBNull(reader.GetValue("nombre")) ? string.Empty : reader.GetString("nombre");
-            client.Email = Convert.IsDBNull(reader.GetValue("email")) ? string.Empty : reader.GetString("apellido");
+            client.Name = Convert.IsDBNull(reader.GetValue("name")) ? string.Empty : reader.GetString("name");
+            client.Email = Convert.IsDBNull(reader.GetValue("email")) ? string.Empty : reader.GetString("email");
             client.Birthdate = Convert.IsDBNull(reader.GetValue("birthdate")) ? DateTime.Now : reader.GetDateTime("birthdate");
 
-            client.Gender = Convert.IsDBNull(reader.GetValue("gender")) ? "F" : reader.GetString("gender");
+            client.Gender = Convert.IsDBNull(reader.GetValue("gender")) ? string.Empty : reader.GetString("gender");
 
             client.Created_at = Convert.IsDBNull(reader.GetValue("created_at")) ? DateTime.Now : reader.GetDateTime("created_at");
             client.Updated_at = Convert.IsDBNull(reader.GetValue("updated_at")) ? DateTime.Now : reader.GetDateTime("updated_at");
