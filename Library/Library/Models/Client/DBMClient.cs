@@ -41,10 +41,10 @@ public class DBMClient
             Console.WriteLine(reader.GetInt32(0));
 
             ClientModel client = new();
-            client.Client_id = Convert.IsDBNull(reader.GetValue("client_id")) ? 0 : reader.GetInt32("client_id");
+            client.Client_Id = Convert.IsDBNull(reader.GetValue("client_id")) ? 0 : reader.GetInt32("client_id");
 
             MartialStatusModel martialStatus = new();
-            martialStatus.Martial_status_id = Convert.IsDBNull(reader.GetValue("martial_status_id")) ? 0 : reader.GetInt32("martial_status_id");
+            martialStatus.Martial_Status_Id = Convert.IsDBNull(reader.GetValue("martial_status_id")) ? 0 : reader.GetInt32("martial_status_id");
             martialStatus.Description = Convert.IsDBNull(reader.GetValue("martial_status_description")) ? string.Empty : reader.GetString("martial_status_description");
             client.Martial_Status = martialStatus;
 
