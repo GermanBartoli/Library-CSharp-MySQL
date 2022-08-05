@@ -1,4 +1,4 @@
-namespace Library.Models.Client;
+namespace Library.Models.Client.MartialStatus;
 
 public class MartialStatusModel
 {
