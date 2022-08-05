@@ -20,5 +20,5 @@ public class DTOModel
     }
 
     public List<ClientModel> ClientList { get => clientList; set => clientList = value; }
-    public ClientModel Cliente { get => client; set => client = value; }
+    public ClientModel Client { get => client; set => client = value; }
 }
