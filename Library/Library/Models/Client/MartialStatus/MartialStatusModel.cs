@@ -7,7 +7,7 @@ public class MartialStatusModel
 
     public MartialStatusModel(int martial_status_id, string description)
     {
-        this.Martial_status_id = martial_status_id;
+        this.Martial_Status_Id = martial_status_id;
         this.Description = description;
     }
 
@@ -15,6 +15,6 @@ public class MartialStatusModel
     {
     }
 
-    public int Martial_status_id { get => martial_status_id; set => martial_status_id = value; }
+    public int Martial_Status_Id { get => martial_status_id; set => martial_status_id = value; }
     public string Description { get => description; set => description = value; }
 }
