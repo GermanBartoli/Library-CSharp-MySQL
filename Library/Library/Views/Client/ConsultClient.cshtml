@@ -1,0 +1,171 @@
+﻿@using System.Collections.Generic;
+@using System.Data;
+@using System.Web;
+@using System;
+
+@using Library.Models.Client;
+@using Library.Models.Client.MartialStatus
+@using Library.Models.DTO;
+
+@model DTOModel;
+
+@{
+    if (Model.Client.Client_Id == 0)
+    {
+        ViewData["Title"] = "New Client";
+    }
+    else
+    {
+        ViewData["Title"] = "Edit Client";
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="note">
+    <p>
+        @*
+            @(Model.Client.Client_id == 0 ? "New" : "Edit") A Client
+        *@
+</div>
+<ul class="nav nav-tabs" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active text-red-1" id="pills-home-tab"
+            data-bs-toggle="pill" data-bs-target="#pills-datos-generales"
+            type="button" role="tab" aria-controls="pills-home"
+            aria-selected="true">
+            Personal Information
+        </button>
+    </li>
+</ul>
+<form action="/Client/NewClient" method="POST" id="save"
+    onsubmit="return Validations()">
+
+    <div class="tab-content" id="pills-tabContent"
+        style="background-color:white;">
+
+        <div class="tab-pane fade show active" id="pills-datos-generales"
+            role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="form-content bk mt-3">
+
+                @if (@Model.Client is null || Model.Client.Client_Id == 0)
+                {
+                    <input type="text" class="form-control bk" id="clientID"
+                    asp-for="Client.Client_Id" hidden="" value="0">
+                }
+                else
+                {
+                    <input type="text" class="form-control bk" id="clientID"
+                    asp-for="Client.Client_Id" hidden=""
+                    value="@Model.Client.Client_Id">
+                }
+
+                <fieldset class="scheduler-border" id="personal-information">
+                    <legend class="scheduler-border text-red-1">Personal
+                        Information</legend>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label for="nombre">ID</label>
+                            <input type="text" asp-for="Client.Client_Id"
+                                class="form-control bk" id="clientID"
+                                title="ID Client"
+                                placeholder="Ingrese su nombre"
+                                value="@Model.Client.Client_Id" readonly>
+                        </div>
+                        <div class="col-sm-5">
+                            <label for="apellido">Name</label>
+                            <input type="text" class="form-control bk"
+                                asp-for="Client.Name" id="name"
+                                title="Full Name"
+                                placeholder="Ingrese su apellido"
+                                value="@Model.Client.Name" readonly>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="dni">Email</label>
+                            <input type="number" class="form-control bk"
+                                id="email" asp-for="Client.Email" title="Email"
+                                placeholder="Email" value="@Model.Client.Email"
+                                readonly />
+                        </div>
+                        <div class="col-sm-2">
+                            <label for="martialStatus">Martial Status</label>
+                            @if (@Model.Client.Client_Id == 0)
+                            {
+                                <select id="martialStatus" class="form-select bk"
+                                title="Martial Status"
+                                asp-for="Client.MartialStatus.Martial_Status_Id"
+                                disabled>
+                                    @foreach (MartialStatusModel martialStatusModel
+                                   in ViewBag.MartialStatus)
+                                    {
+                                        <option value="@martialStatusModel.Martial_Status_Id">
+                                            @martialStatusModel.Description
+                                        </option>
+                                    }
+                                </select>
+                            }
+                            else
+                            {
+                                <select id="martialStatus" class="form-select bk"
+                                title="Martial Status"
+                                asp-for="Client.MartialStatus.Martial_Status_Id"
+                                disabled>
+                                    @foreach (MartialStatusModel martialStatusModel
+                                   in ViewBag.MartialStatus)
+                                    {
+                                        @if(Model.Client.Martial_Status.Martial_Status_Id == martialStatusModel.Martial_Status_Id)
+                                        {
+                                            <option
+                                    value="@martialStatusModel.Martial_Status_Id" selected>
+                                                @martialStatusModel.Description
+                                            </option>
+                                        }
+                                        else
+                                        {
+                                            <option
+                                    value="@martialStatusModel.Martial_Status_Id">
+                                                @martialStatusModel.Description
+                                            </option>
+                                        }
+                                    }
+                                </select>
+                            }
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+
+                        @* <div class="col-sm-3">
+                            <label for="edad">Edad</label>
+                            <input type="number" class="form-control bk"
+                            id="edad" asp-for="Client.Edad" title="Edad"
+                            placeholder="Edad" value="@Model.Client.Edad"
+                            readonly />
+                            </div> *@
+                    </div>
+                </fieldset>
+                <br />
+            </div>
+        </div>
+        </fieldset>
+
+        <br />
+        <br />
+
+        <a href="/Client/NewClient?clientID=@Model.Client.Client_Id"
+            class="btn btn-warning text-white btn-gral"
+            title="Botón de editar los datos del cliente">
+            Edit
+        </a>
+
+        <a href="/Client/ListadoClientes/" class="btn btn-dark text-white"
+            style="margin-left:5px;"
+            title="Vuelve a la página donde se encuentra el listado de todos los clientes">
+            Back to the list of Clients
+        </a>
+        <br />
+        <br />
+        <br />
+    </div>
+</form>
+
+<script src="~/js/validations.js" type="text/javascript" charset="UTF-8"
+    asp-append-version="true"></script>
