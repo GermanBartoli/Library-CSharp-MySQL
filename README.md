@@ -1,4 +1,4 @@
-# Introduction MySQL - Platzi Course
+# Introduction MySQL Platzi
 
 # Images
 
