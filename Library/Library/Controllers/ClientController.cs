@@ -21,5 +21,39 @@ namespace Library.Controllers
 
             return View(dto);
         }
+
+
+
+        public ActionResult ConsultaCliente(int? idCliente)
+        {
+            List<MartialStatusModel> martialStatus = dBMMartialStatus.CargarComboGenero();
+
+            ViewBag.Generos = generos;
+
+            if (idCliente == 0 || idCliente == null)
+            {
+                DTOModel dto = new();
+
+                return View(dto);
+            }
+            else
+            {
+                DTOModel dto = new();
+
+                dto = gBDCliente.ObtenerClientexIdCliente(idCliente);
+
+                if (dto == null)
+                {
+                    return NotFound();
+                }
+                return View(dto);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult ConsultaCliente(DTOModel dto)
+        {
+            return View();
+        }
     }
 }
