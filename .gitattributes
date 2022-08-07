@@ -1,2 +1,3 @@
 # *.sql linguist-detectable=true
 *.cshtml linguist-detectable=true
+*.HTML+Razor linguist-detectable=true
