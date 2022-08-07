@@ -38,7 +38,7 @@ public class DBMClient
 
         while (reader.Read())
         {
-            Console.WriteLine(reader.GetInt32(0));
+            //Console.WriteLine(reader.GetInt32(0));
 
             ClientModel client = new();
             client.Client_Id = Convert.IsDBNull(reader.GetValue("client_id")) ? 0 : reader.GetInt32("client_id");
