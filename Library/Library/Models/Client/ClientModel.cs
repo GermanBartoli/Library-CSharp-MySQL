@@ -8,12 +8,11 @@ public partial class ClientModel
     private int client_id = 0;
     private MartialStatusModel martial_status = new();
     private string name = "";
-
     [Required]
     private string email = "";
-
     private DateTime birthdate;
     private string gender = "";
+
     private DateTime created_at;
     private DateTime updated_at;
     private Boolean active = false;
