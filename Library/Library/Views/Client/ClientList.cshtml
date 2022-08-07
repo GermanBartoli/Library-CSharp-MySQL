@@ -17,8 +17,10 @@
 <div class="col-12 border-top-red-3 p-3">
     <div class="row">
         <div class="col-2">
-            <a href="/Client/CreateClient" value="register" title="Create a new customer button"
-                class="btn btn-success redondeado text-white" style="width: max-content;">
+            <a href="/Client/CreateClient" value="register"
+                title="Create a new customer button"
+                class="btn btn-success redondeado text-white"
+                style="width: max-content;">
                 Add new Client
             </a>
         </div>
@@ -28,13 +30,15 @@
     {
         @if (Model.ClientList.Count() >= 1)
         {
-            <table id="table" class="table table-striped table-bordered" style="width:100%" title="List of all clients">
+            <table id="table" class="table table-striped table-bordered"
+        style="width:100%" title="List of all clients">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Gender</th>
+                        <th>Martial Status</th>
                         <th>Birthdate</th>
                         <th>Actions</th>
                     </tr>
@@ -43,22 +47,26 @@
                     @foreach (ClientModel client in Model.ClientList)
                     {
                         <tr>
-                            <td>@client.Client_id</td>
+                            <td>@client.Client_Id</td>
                             <td>@client.Name</td>
                             <td>@client.Email</td>
                             <td>@client.Gender</td>
-
+                            <td>@client.Martial_Status.Description</td>
+                            <td>@client.Birthdate</td>
                             <td style="width:25%;">
-                                <a href="/Client/CreateClient?clientID=@client.Client_id"
-                        class="btn btn-warning text-white btn-gral" title="Button to edit customer data">
+                                <a href="/Client/CreateClient?clientID=@client.Client_Id"
+                        class="btn btn-warning text-white btn-gral"
+                        title="Button to edit customer data">
                                     Edit
                                 </a>
-                                <a href="/Cliente/ConsultaCliente?idCliente=@client.Client_id"
-                        class="btn btn-primary text-white btn-gral" title="Button to check customer data">
+                                <a href="/Cliente/ConsultaCliente?idCliente=@client.Client_Id"
+                        class="btn btn-primary text-white btn-gral"
+                        title="Button to check customer data">
                                     Consult
                                 </a>
-                                <a href="/Cliente/DeshabilitarCliente?idCliente=@client.Client_id"
-                        class="btn btn-danger text-white btn-gral" title="Button to delete all customer data and records ">
+                                <a href="/Cliente/DeshabilitarCliente?idCliente=@client.Client_Id"
+                        class="btn btn-danger text-white btn-gral"
+                        title="Button to delete all customer data and records ">
                                     Delete
                                 </a>
                             </td>
@@ -72,6 +80,7 @@
                         <th>Email</th>
                         <th>Gender</th>
                         <th>Birthdate</th>
+                        <th>Martial Status</th>
                         <th>Actions</th>
                     </tr>
                 </tfoot>
@@ -79,7 +88,8 @@
         }
         else
         {
-            <table id="table" class="table table-striped table-bordered" style="width:100%" title="List of all clients">
+            <table id="table" class="table table-striped table-bordered"
+        style="width:100%" title="List of all clients">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -87,6 +97,7 @@
                         <th>Email</th>
                         <th>Gender</th>
                         <th>Birthdate</th>
+                        <th>Martial Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
