@@ -29,8 +29,11 @@
 </div>
 <ul class="nav nav-tabs" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
-        <button class="nav-link active text-red-1" id="pills-home-tab"
-            data-bs-toggle="pill" data-bs-target="#pills-datos-generales"
+        <button 
+            class="nav-link active text-red-1" 
+            id="pills-home-tab"
+            data-bs-toggle="pill" 
+            data-bs-target="#pills-datos-generales"
             type="button" role="tab" aria-controls="pills-home"
             aria-selected="true">
             Personal Information
@@ -73,7 +76,8 @@
                         </div>
                         <div class="col-sm-5">
                             <label for="apellido">Name</label>
-                            <input type="text" class="form-control bk"
+                            <input type="text" 
+                                class="form-control bk"
                                 asp-for="Client.Name" id="name"
                                 title="Full Name"
                                 placeholder="Ingrese su apellido"
@@ -90,10 +94,12 @@
                             <label for="martialStatus">Martial Status</label>
                             @if (@Model.Client.Client_Id == 0)
                             {
-                                <select id="martialStatus" class="form-select bk"
-                                title="Martial Status"
-                                asp-for="Client.MartialStatus.Martial_Status_Id"
-                                disabled>
+                                <select 
+                                    id="martialStatus" 
+                                    class="form-select bk"
+                                    title="Martial Status"
+                                    asp-for="Client.Martial_Status.Martial_Status_Id"
+                                    disabled>
                                     @foreach (MartialStatusModel martialStatusModel
                                    in ViewBag.MartialStatus)
                                     {
@@ -105,24 +111,23 @@
                             }
                             else
                             {
-                                <select id="martialStatus" class="form-select bk"
-                                title="Martial Status"
-                                asp-for="Client.MartialStatus.Martial_Status_Id"
-                                disabled>
-                                    @foreach (MartialStatusModel martialStatusModel
-                                   in ViewBag.MartialStatus)
+                                <select 
+                                    id="martialStatus" 
+                                    class="form-select bk"
+                                    title="Martial Status"
+                                    asp-for="Client.Martial_Status.Martial_Status_Id"
+                                    disabled>
+                                    @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus)
                                     {
                                         @if(Model.Client.Martial_Status.Martial_Status_Id == martialStatusModel.Martial_Status_Id)
                                         {
-                                            <option
-                                    value="@martialStatusModel.Martial_Status_Id" selected>
+                                            <option value="@martialStatusModel.Martial_Status_Id" selected>
                                                 @martialStatusModel.Description
                                             </option>
                                         }
                                         else
                                         {
-                                            <option
-                                    value="@martialStatusModel.Martial_Status_Id">
+                                            <option value="@martialStatusModel.Martial_Status_Id">
                                                 @martialStatusModel.Description
                                             </option>
                                         }
@@ -135,10 +140,12 @@
 
                         @* <div class="col-sm-3">
                             <label for="edad">Edad</label>
-                            <input type="number" class="form-control bk"
-                            id="edad" asp-for="Client.Edad" title="Edad"
-                            placeholder="Edad" value="@Model.Client.Edad"
-                            readonly />
+                            <input 
+                                    type="number" 
+                                    class="form-control bk"
+                                    id="edad" asp-for="Client.Edad" title="Edad"
+                                    placeholder="Edad" value="@Model.Client.Edad"
+                                    readonly />
                             </div> *@
                     </div>
                 </fieldset>
@@ -150,7 +157,8 @@
         <br />
         <br />
 
-        <a href="/Client/NewClient?clientID=@Model.Client.Client_Id"
+        <a 
+            href="/Client/NewClient?clientID=@Model.Client.Client_Id"
             class="btn btn-warning text-white btn-gral"
             title="Botón de editar los datos del cliente">
             Edit
