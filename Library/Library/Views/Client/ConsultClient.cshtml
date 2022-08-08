@@ -81,14 +81,63 @@
                                 asp-for="Client.Name" id="name"
                                 title="Full Name"
                                 placeholder="Ingrese su apellido"
-                                value="@Model.Client.Name" readonly>
+                                value="@Model.Client.Name" 
+                                readonly>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <label for="dni">Email</label>
-                            <input type="number" class="form-control bk"
-                                id="email" asp-for="Client.Email" title="Email"
-                                placeholder="Email" value="@Model.Client.Email"
+                            <input
+                                type="email" 
+                                class="form-control bk"
+                                id="email" 
+                                asp-for="Client.Email" 
+                                title="Email"
+                                placeholder="Email" 
+                                value="@Model.Client.Email"
                                 readonly />
+                        </div>
+                        <div class="col-sm-2">
+                            <label for="gender">Gender</label>
+                            @if (@Model.Client.Client_Id == 0)
+                            {
+                                <select 
+                                    id="sexo" 
+                                    class="form-select bk" 
+                                    title="Corresponding gender, Male or Female"
+                                    asp-for="Client.Gender" 
+                                    disabled
+                                >
+                                    <option value="M">
+                                        Male
+                                     </option>
+                                    <option value="F">
+                                        Female
+                                    </option>
+                                </select>
+                            }
+                            else
+                            {
+                                <select 
+                                    id="sexo" 
+                                    class="form-select bk" 
+                                    title="Corresponding gender, Male or Female"
+                                    asp-for="Client.Gender" 
+                                    disabled
+                                    >
+                                        @if (Model.Client.Gender == "M")
+                                        {
+                                            <option value="M" selected>
+                                                Male
+                                            </option>
+                                        }
+                                        else
+                                        {
+                                            <option value="F">
+                                                Female
+                                            </option>
+                                        }
+                                </select>
+                            }
                         </div>
                         <div class="col-sm-2">
                             <label for="martialStatus">Martial Status</label>
