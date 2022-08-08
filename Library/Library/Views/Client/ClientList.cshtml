@@ -50,7 +50,13 @@
                             <td>@client.Client_Id</td>
                             <td>@client.Name</td>
                             <td>@client.Email</td>
-                            <td>@client.Gender</td>
+                            @if (client.Gender == "M")
+                            {
+                                 <td>Male</td>
+                            } else
+                            {
+                                <td>Female</td>
+                            }
                             <td>@client.Martial_Status.Description</td>
                             <td>@client.Birthdate</td>
                             <td style="width:25%;">
