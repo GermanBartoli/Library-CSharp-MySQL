@@ -153,27 +153,23 @@
             </div>
         </div>
         </fieldset>
-
         <br />
-        <br />
-
         <a 
             href="/Client/NewClient?clientID=@Model.Client.Client_Id"
             class="btn btn-warning text-white btn-gral"
-            title="Botón de editar los datos del cliente">
+            title="Button to edit customer data">
             Edit
         </a>
 
-        <a href="/Client/ListadoClientes/" class="btn btn-dark text-white"
+        <a 
+            href="/Client/ClientList/" 
+            class="btn btn-dark text-white"
             style="margin-left:5px;"
-            title="Vuelve a la página donde se encuentra el listado de todos los clientes">
+            title="Go back to the page where you can find the list of all clients">
             Back to the list of Clients
         </a>
-        <br />
-        <br />
         <br />
     </div>
 </form>
 
-<script src="~/js/validations.js" type="text/javascript" charset="UTF-8"
-    asp-append-version="true"></script>
+<script src="~/js/validations.js" type="text/javascript" charset="UTF-8" asp-append-version="true"></script>
