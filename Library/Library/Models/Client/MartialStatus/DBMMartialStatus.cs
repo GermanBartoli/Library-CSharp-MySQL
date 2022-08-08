@@ -17,7 +17,7 @@ public class DBMMartialStatus
         String consult =
                                         @"SELECT
                                           martialstatus.martial_status_id,
-	                                      martialstatus.despcription
+	                                      martialstatus.description
                                         FROM martialstatus
                                         order by 2; ";
 
@@ -31,7 +31,7 @@ public class DBMMartialStatus
 
         while (reader.Read())
         {
-            Console.WriteLine(reader.GetInt32(0));
+            //Console.WriteLine(reader.GetInt32(0));
 
             MartialStatusModel martialStatus = new();
             martialStatus.Martial_Status_Id = reader.GetInt32(0);
