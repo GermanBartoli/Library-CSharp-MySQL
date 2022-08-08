@@ -24,13 +24,13 @@ namespace Library.Controllers
 
 
 
-        public ActionResult ConsultaCliente(int? idCliente)
+        public ActionResult ConsultClient(int? Client_Id)
         {
-            List<MartialStatusModel> martialStatus = dBMMartialStatus.CargarComboGenero();
+            List<MartialStatusModel> martialStatus = dBMMartialStatus.LoadComboBoxMartialStatus();
 
-            ViewBag.Generos = generos;
+            ViewBag.MartialStatus = martialStatus;
 
-            if (idCliente == 0 || idCliente == null)
+            if (Client_Id == 0 || Client_Id == null)
             {
                 DTOModel dto = new();
 
@@ -40,7 +40,7 @@ namespace Library.Controllers
             {
                 DTOModel dto = new();
 
-                dto = gBDCliente.ObtenerClientexIdCliente(idCliente);
+                dto = dBMClient.GetClientByCustomerID(Client_Id);
 
                 if (dto == null)
                 {
@@ -51,7 +51,7 @@ namespace Library.Controllers
         }
 
         [HttpPost]
-        public IActionResult ConsultaCliente(DTOModel dto)
+        public IActionResult ConsultClient(DTOModel dto)
         {
             return View();
         }
