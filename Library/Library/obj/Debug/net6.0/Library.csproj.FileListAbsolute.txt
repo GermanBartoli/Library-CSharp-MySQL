@@ -25,3 +25,4 @@ C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\ref\Library.dll
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\bin\Debug\net6.0\MySqlConnector.dll
 C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\obj\Debug\net6.0\Library.csproj.CopyComplete
+C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library\bin\Debug\net6.0\.prettierrc.json
