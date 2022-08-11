@@ -12,11 +12,11 @@
 @{
     if (Model.Client.Client_Id == 0)
     {
-        ViewData["Title"] = "New Client";
+        ViewData["Title"] = "";
     }
     else
     {
-        ViewData["Title"] = "Edit Client";
+        ViewData["Title"] = "Consult Client";
     }
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -133,8 +133,8 @@
                             <select
                                 id="sexo"
                                 class="form-select bk"
-                                title="Corresponding gender, Male or Female"
                                 asp-for="Client.Gender"
+                                title="Corresponding gender, Male or Female"
                                 disabled
                             >
                                 <option value="M">Male</option>
@@ -166,14 +166,13 @@
                                 asp-for="Client.Martial_Status.Martial_Status_Id"
                                 disabled
                             >
-                                @foreach (MartialStatusModel martialStatusModel
-                                in ViewBag.MartialStatus) {
-                                <option
-                                    value="@martialStatusModel.Martial_Status_Id"
-                                >
-                                    @martialStatusModel.Description
-                                </option>
-                                }
+                            @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
+                            <option
+                                value="@martialStatusModel.Martial_Status_Id"
+                            >
+                                @martialStatusModel.Description
+                            </option>
+                            }
                             </select>
                             } else {
                             <select
@@ -253,21 +252,6 @@
                             />
                             *@
                         </div>
-
-                        <div class="col-sm-3">
-                            <label for="nombre">Last Update Date</label>
-                                <input
-                                    type="datetime-local"
-                                    asp-for="Client.Updated_at"
-                                    data-date-format="yyyy-MM-dd"
-                                    class="form-control bk"
-                                    id="UpdatedAt"
-                                    title="Date Updated"
-                                    placeholder=""
-                                    value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
-                                    readonly
-                                />
-                         </div>
 
                         <div class="col-sm-3">
                             <label for="nombre">Last Update Date</label>
