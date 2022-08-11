@@ -116,16 +116,16 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="dni">Email</label>
-                            <input
-                                type="email"
-                                class="form-control bk"
-                                id="email"
-                                asp-for="Client.Email"
-                                title="Email"
-                                placeholder="Email"
-                                value="@Model.Client.Email"
-                                readonly
-                            />
+                                <input
+                                    type="email"
+                                    class="form-control bk"
+                                    id="email"
+                                    asp-for="Client.Email"
+                                    title="Email"
+                                    placeholder="Email"
+                                    value="@Model.Client.Email"
+                                    readonly
+                                />
                         </div>
                         <div class="col-sm-2">
                             <label for="gender">Gender</label>
@@ -203,7 +203,7 @@
                             }
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row mt-4">
                         <div class="col-sm-2">
                             <label for="nombre">Birthdate</label>
                             <input
@@ -225,18 +225,19 @@
                             @* private DateTime created_at;
                             private DateTime updated_at;
                             private Boolean active = false; *@
+                            
+                            <label for="nombre">Creation Date</label>
                             <input
                                 type="datetime-local"
-                                asp-for="Client.Birthdate"
+                                asp-for="Client.Created_at"
                                 data-date-format="yyyy-MM-dd"
                                 class="form-control bk"
-                                id="birthdate"
-                                title="ID Client"
-                                placeholder="Ingrese su nombre"
+                                id="CreatedAt"
+                                title="Date Created"
+                                placeholder=""
                                 value="@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")"
                                 readonly
-                            />
-                            
+                            />                            
                             
                             @*
                             <label for="edad">Edad</label>
@@ -252,10 +253,68 @@
                             />
                             *@
                         </div>
-                   
+
+                        <div class="col-sm-3">
+                            <label for="nombre">Last Update Date</label>
+                                <input
+                                    type="datetime-local"
+                                    asp-for="Client.Updated_at"
+                                    data-date-format="yyyy-MM-dd"
+                                    class="form-control bk"
+                                    id="UpdatedAt"
+                                    title="Date Updated"
+                                    placeholder=""
+                                    value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                                    readonly
+                                />
+                         </div>
+
+                        <div class="col-sm-3">
+                            <label for="nombre">Last Update Date</label>
+                                <input
+                                    type="datetime-local"
+                                    asp-for="Client.Updated_at"
+                                    data-date-format="yyyy-MM-dd"
+                                    class="form-control bk"
+                                    id="UpdatedAt"
+                                    title="Date Updated"
+                                    placeholder=""
+                                    value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                                    readonly
+                                />
+                         </div>
+
+                        <div class="col-sm-1">
+                            <label for="active">Active</label>
+                            @if (@Model.Client.Client_Id == 0) {
+                            <select
+                                id="active"
+                                class="form-select bk"
+                                title=""
+                                asp-for="Client.Active"
+                                disabled
+                            >
+                            <option value= true>Yes</option>
+                            <option value= false>No</option>
+                            </select>
+                            } else {
+                            <select
+                                id="active"
+                                class="form-select bk"
+                                title=""
+                                asp-for="Client.Active"
+                                disabled
+                            >
+                            @if (Model.Client.Active == true) {
+                            <option value= true selected>Yes</option>
+                            } else {
+                            <option value= false>No</option>
+                            }
+                            </select>
+                            }
+                         </div>
                     </div>
                 </fieldset>
-                <br />
             </div>
         </div>
         <br />
