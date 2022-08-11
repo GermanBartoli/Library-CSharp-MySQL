@@ -67,7 +67,7 @@
                 <input
                     type="text"
                     class="form-control bk"
-                    id="clientID"
+                    id="ClientID"
                     asp-for="Client.Client_Id"
                     hidden=""
                     value="0"
@@ -76,7 +76,7 @@
                 <input
                     type="text"
                     class="form-control bk"
-                    id="clientID"
+                    id="ClientID"
                     asp-for="Client.Client_Id"
                     hidden=""
                     value="@Model.Client.Client_Id"
@@ -89,37 +89,37 @@
                     </legend>
                     <div class="row">
                         <div class="col-sm-1">
-                            <label for="nombre">ID</label>
+                            <label for="Client_Id">ID</label>
                             <input
                                 type="text"
                                 asp-for="Client.Client_Id"
                                 class="form-control bk"
-                                id="clientID"
+                                id="Client_Id"
                                 title="ID Client"
-                                placeholder="Ingrese su nombre"
+                                placeholder=""
                                 value="@Model.Client.Client_Id"
                                 readonly
                             />
                         </div>
                         <div class="col-sm-3">
-                            <label for="apellido">Name</label>
+                            <label for="Name">Name</label>
                             <input
                                 type="text"
                                 class="form-control bk"
                                 asp-for="Client.Name"
-                                id="name"
+                                id="Name"
                                 title="Full Name"
-                                placeholder="Ingrese su apellido"
+                                placeholder=""
                                 value="@Model.Client.Name"
                                 readonly
                             />
                         </div>
                         <div class="col-sm-4">
-                            <label for="dni">Email</label>
+                            <label for="Email">Email</label>
                             <input
                                 type="email"
                                 class="form-control bk"
-                                id="email"
+                                id="Email"
                                 asp-for="Client.Email"
                                 title="Email"
                                 placeholder="Email"
@@ -128,10 +128,10 @@
                             />
                         </div>
                         <div class="col-sm-2">
-                            <label for="gender">Gender</label>
+                            <label for="Gender">Gender</label>
                             @if (@Model.Client.Client_Id == 0) {
                             <select
-                                id="sexo"
+                                id="Gender"
                                 class="form-select bk"
                                 asp-for="Client.Gender"
                                 title="Corresponding gender, Male or Female"
@@ -142,10 +142,10 @@
                             </select>
                             } else {
                             <select
-                                id="sexo"
+                                id="Gender"
                                 class="form-select bk"
-                                title="Corresponding gender, Male or Female"
                                 asp-for="Client.Gender"
+                                title="Corresponding gender, Male or Female"
                                 disabled
                             >
                                 @if (Model.Client.Gender == "M") {
@@ -157,10 +157,10 @@
                             }
                         </div>
                         <div class="col-sm-2">
-                            <label for="martialStatus">Martial Status</label>
+                            <label for="MartialStatus">Martial Status</label>
                             @if (@Model.Client.Client_Id == 0) {
                             <select
-                                id="martialStatus"
+                                id="MartialStatus"
                                 class="form-select bk"
                                 title="Martial Status"
                                 asp-for="Client.Martial_Status.Martial_Status_Id"
@@ -176,7 +176,7 @@
                             </select>
                             } else {
                             <select
-                                id="martialStatus"
+                                id="MartialStatus"
                                 class="form-select bk"
                                 title="Martial Status"
                                 asp-for="Client.Martial_Status.Martial_Status_Id"
@@ -203,7 +203,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-sm-2">
-                            <label for="nombre">Birthdate</label>
+                            <label for="Birthdate">Birthdate</label>
                             <input type="date"; 
                                 @* 
                                 type="datetime-local" 
@@ -211,29 +211,36 @@
                                 asp-for="Client.Birthdate"
                                 data-date-format="yyyy-MM-dd"
                                 class="form-control bk"
-                                id="birthdate"
-                                title="ID Client"
-                                placeholder="Ingrese su nombre"
+                                id="Birthdate"
+                                title="Birthdate"
+                                placeholder=""
                                 value="@Model.Client.Birthdate.ToString("yyyy-MM-dd")";
                                 @*
                                 value="@Model.Client.Birthdate.ToString("yyyy-MM-ddThh:mm:ss")"
-                                *@ readonly />
+                                *@ 
+                                readonly />
                         </div>
 
                         <div class="col-sm-3">
+                            
                             @* 
                             private DateTime created_at; 
                             private DateTime
-                            updated_at; private Boolean active = false; *@
+                            updated_at; private Boolean active = false; 
+                            *@
 
-                            <label for="nombre">Creation Date</label>
+                            <label for="CreationDate">Creation Date</label>
                             <input type="datetime-local"
                             asp-for="Client.Created_at"
-                            data-date-format="yyyy-MM-dd" class="form-control
-                            bk" id="CreatedAt" title="Date Created"
+                            data-date-format="yyyy-MM-dd" 
+                            class="form-control bk" 
+                            id="CreationDate" 
+                            title="Date Created"
                             placeholder=""
                             value="@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")"
-                            readonly /> @*
+                            readonly /> 
+                            
+                            @*
                             <label for="edad">Edad</label>
                             <input
                                 type="number"
@@ -246,26 +253,28 @@
                                 readonly
                             />
                             *@
+
                         </div>
 
                         <div class="col-sm-3">
-                            <label for="nombre">Last Update Date</label>
-                            <input type="datetime-local"
-                            asp-for="Client.Updated_at"
-                            data-date-format="yyyy-MM-dd" 
-                            class="form-control bk" 
-                            id="UpdatedAt" 
-                            title="Date Updated"
-                            placeholder=""
-                            value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
-                            readonly />
+                            <label for="DateUpdated">Last Update Date</label>
+                            <input 
+                                type="datetime-local"
+                                asp-for="Client.Updated_at"
+                                data-date-format="yyyy-MM-dd" 
+                                class="form-control bk" 
+                                id="DateUpdated" 
+                                title="Date Updated"
+                                placeholder=""
+                                value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                                readonly />
                         </div>
 
                         <div class="col-sm-1">
-                            <label for="active">Active</label>
+                            <label for="Active">Active</label>
                             @if (@Model.Client.Client_Id == 0) {
                             <select
-                                id="active"
+                                id="Active"
                                 class="form-select bk"
                                 title=""
                                 asp-for="Client.Active"
@@ -276,7 +285,7 @@
                             </select>
                             } else {
                             <select
-                                id="active"
+                                id="Active"
                                 class="form-select bk"
                                 title=""
                                 asp-for="Client.Active"
@@ -294,6 +303,7 @@
                 </fieldset>
             </div>
         </div>
+        
         <br />
         <a
             href="/Client/NewClient?clientID=@Model.Client.Client_Id"
