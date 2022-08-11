@@ -116,16 +116,16 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="dni">Email</label>
-                                <input
-                                    type="email"
-                                    class="form-control bk"
-                                    id="email"
-                                    asp-for="Client.Email"
-                                    title="Email"
-                                    placeholder="Email"
-                                    value="@Model.Client.Email"
-                                    readonly
-                                />
+                            <input
+                                type="email"
+                                class="form-control bk"
+                                id="email"
+                                asp-for="Client.Email"
+                                title="Email"
+                                placeholder="Email"
+                                value="@Model.Client.Email"
+                                readonly
+                            />
                         </div>
                         <div class="col-sm-2">
                             <label for="gender">Gender</label>
@@ -166,13 +166,13 @@
                                 asp-for="Client.Martial_Status.Martial_Status_Id"
                                 disabled
                             >
-                            @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
-                            <option
-                                value="@martialStatusModel.Martial_Status_Id"
-                            >
-                                @martialStatusModel.Description
-                            </option>
-                            }
+                                @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
+                                <option
+                                    value="@martialStatusModel.Martial_Status_Id"
+                                >
+                                    @martialStatusModel.Description
+                                </option>
+                                }
                             </select>
                             } else {
                             <select
@@ -184,20 +184,19 @@
                             >
                                 @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
                                 @if(Model.Client.Martial_Status.Martial_Status_Id == martialStatusModel.Martial_Status_Id) {
-                                    <option
-                                        value="@martialStatusModel.Martial_Status_Id"
-                                        selected
-                                    >
-                                        @martialStatusModel.Description
-                                    </option>
-                                } else {
-                                    <option
-                                        value="@martialStatusModel.Martial_Status_Id"
-                                    >
+                                <option
+                                    value="@martialStatusModel.Martial_Status_Id"
+                                    selected
+                                >
                                     @martialStatusModel.Description
-                                    </option>
-                                } 
-                            }
+                                </option>
+                                } else {
+                                <option
+                                    value="@martialStatusModel.Martial_Status_Id"
+                                >
+                                    @martialStatusModel.Description
+                                </option>
+                                } }
                             </select>
                             }
                         </div>
@@ -205,9 +204,10 @@
                     <div class="row mt-4">
                         <div class="col-sm-2">
                             <label for="nombre">Birthdate</label>
-                            <input
-                                type="date";
-                                @* type="datetime-local" *@
+                            <input type="date"; 
+                                @* 
+                                type="datetime-local" 
+                                *@
                                 asp-for="Client.Birthdate"
                                 data-date-format="yyyy-MM-dd"
                                 class="form-control bk"
@@ -215,30 +215,25 @@
                                 title="ID Client"
                                 placeholder="Ingrese su nombre"
                                 value="@Model.Client.Birthdate.ToString("yyyy-MM-dd")";
-                                @* value="@Model.Client.Birthdate.ToString("yyyy-MM-ddThh:mm:ss")" *@
-                                readonly
-                            />
+                                @*
+                                value="@Model.Client.Birthdate.ToString("yyyy-MM-ddThh:mm:ss")"
+                                *@ readonly />
                         </div>
-                        
+
                         <div class="col-sm-3">
-                            @* private DateTime created_at;
-                            private DateTime updated_at;
-                            private Boolean active = false; *@
-                            
+                            @* 
+                            private DateTime created_at; 
+                            private DateTime
+                            updated_at; private Boolean active = false; *@
+
                             <label for="nombre">Creation Date</label>
-                            <input
-                                type="datetime-local"
-                                asp-for="Client.Created_at"
-                                data-date-format="yyyy-MM-dd"
-                                class="form-control bk"
-                                id="CreatedAt"
-                                title="Date Created"
-                                placeholder=""
-                                value="@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")"
-                                readonly
-                            />                            
-                            
-                            @*
+                            <input type="datetime-local"
+                            asp-for="Client.Created_at"
+                            data-date-format="yyyy-MM-dd" class="form-control
+                            bk" id="CreatedAt" title="Date Created"
+                            placeholder=""
+                            value="@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                            readonly /> @*
                             <label for="edad">Edad</label>
                             <input
                                 type="number"
@@ -255,18 +250,16 @@
 
                         <div class="col-sm-3">
                             <label for="nombre">Last Update Date</label>
-                                <input
-                                    type="datetime-local"
-                                    asp-for="Client.Updated_at"
-                                    data-date-format="yyyy-MM-dd"
-                                    class="form-control bk"
-                                    id="UpdatedAt"
-                                    title="Date Updated"
-                                    placeholder=""
-                                    value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
-                                    readonly
-                                />
-                         </div>
+                            <input type="datetime-local"
+                            asp-for="Client.Updated_at"
+                            data-date-format="yyyy-MM-dd" 
+                            class="form-control bk" 
+                            id="UpdatedAt" 
+                            title="Date Updated"
+                            placeholder=""
+                            value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                            readonly />
+                        </div>
 
                         <div class="col-sm-1">
                             <label for="active">Active</label>
@@ -278,8 +271,8 @@
                                 asp-for="Client.Active"
                                 disabled
                             >
-                            <option value= true>Yes</option>
-                            <option value= false>No</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
                             </select>
                             } else {
                             <select
@@ -289,14 +282,14 @@
                                 asp-for="Client.Active"
                                 disabled
                             >
-                            @if (Model.Client.Active == true) {
-                            <option value= true selected>Yes</option>
-                            } else {
-                            <option value= false>No</option>
-                            }
+                                @if (Model.Client.Active == true) {
+                                <option value="true" selected>Yes</option>
+                                } else {
+                                <option value="false">No</option>
+                                }
                             </select>
                             }
-                         </div>
+                        </div>
                     </div>
                 </fieldset>
             </div>
