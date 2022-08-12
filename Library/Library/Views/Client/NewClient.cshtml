@@ -1,0 +1,337 @@
+﻿@using System.Collections.Generic;
+@using System.Data;
+@using System.Web;
+@using System;
+
+@using Library.Models.Client;
+@using Library.Models.Client.MartialStatus
+@using Library.Models.DTO;
+
+@model DTOModel;
+
+@{
+    if (Model.Client.Client_Id == 0)
+    {
+        ViewData["Title"] = "New Client";
+    }
+    else
+    {
+        ViewData["Title"] = "Edit Client";
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="note">
+    <p>
+        @*
+            @(Model.Client.Client_id == 0 ? "New" : "Edit") A Client
+        *@
+    </p>
+</div>
+
+<ul class="nav nav-tabs" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button
+            class="nav-link active text-red-1"
+            id="pills-home-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-datos-generales"
+            type="button"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true"
+        >
+            Personal Information
+        </button>
+    </li>
+</ul>
+<form
+    action="/Client/NewClient"
+    method="POST"
+    id="save"
+    onsubmit="return Validations()"
+>
+    <div
+        class="tab-content"
+        id="pills-tabContent"
+        style="background-color: white"
+    >
+        <div
+            class="tab-pane fade show active"
+            id="pills-datos-generales"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+        >
+            <div class="form-content bk mt-1">
+                @if (@Model.Client is null || Model.Client.Client_Id == 0) {
+                <input
+                    type="text"
+                    class="form-control bk"
+                    id="ClientID"
+                    asp-for="Client.Client_Id"
+                    hidden=""
+                    value="0"
+                />
+                } else {
+                <input
+                    type="text"
+                    class="form-control bk"
+                    id="ClientID"
+                    asp-for="Client.Client_Id"
+                    hidden=""
+                    value="@Model.Client.Client_Id"
+                />
+                }
+
+                <fieldset class="scheduler-border" id="personal-information">
+                    <legend class="scheduler-border text-red-1">
+                        Personal Information
+                    </legend>
+                    <div class="row">
+                        @*
+                        <div class="col-sm-1">
+                            <label for="Client_Id">ID</label>
+                            <input
+                                type="text"
+                                asp-for="Client.Client_Id"
+                                class="form-control bk"
+                                id="Client_Id"
+                                title="ID Client"
+                                placeholder=""
+                                value="@Model.Client.Client_Id"
+                                readonly
+                            />
+                        </div>
+                        *@
+
+                        <div class="col-sm-3">
+                            <label for="Name">Name</label>
+                            <input
+                                type="text"
+                                class="form-control bk"
+                                asp-for="Client.Name"
+                                id="Name"
+                                title="Full Name"
+                                placeholder=""
+                                value="@Model.Client.Name"
+                            />
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="Email">Email</label>
+                            <input
+                                type="email"
+                                class="form-control bk"
+                                id="Email"
+                                asp-for="Client.Email"
+                                title="Email"
+                                placeholder="Email"
+                                value="@Model.Client.Email"
+                            />
+                        </div>
+                        <div class="col-sm-2">
+                            <label for="Gender">Gender</label>
+                            @if (@Model.Client.Client_Id == 0) {
+                            <select
+                                id="Gender"
+                                class="form-select bk"
+                                asp-for="Client.Gender"
+                                title="Corresponding gender, Male or Female"
+                            >
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                            } else {
+                            <select
+                                id="Gender"
+                                class="form-select bk"
+                                asp-for="Client.Gender"
+                                title="Corresponding gender, Male or Female"
+                            >
+                                @if (Model.Client.Gender == "M") {
+                                <option value="M" selected>Male</option>
+                                } else {
+                                <option value="F">Female</option>
+                                }
+                            </select>
+                            }
+                        </div>
+                        <div class="col-sm-2">
+                            <label for="MartialStatus">Martial Status</label>
+                            @if (@Model.Client.Client_Id == 0) {
+                            <select
+                                id="MartialStatus"
+                                class="form-select bk"
+                                title="Martial Status"
+                                asp-for="Client.Martial_Status.Martial_Status_Id"
+                            >
+                                @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
+                                <option
+                                    value="@martialStatusModel.Martial_Status_Id"
+                                >
+                                    @martialStatusModel.Description
+                                </option>
+                                }
+                            </select>
+                            } else {
+                            <select
+                                id="MartialStatus"
+                                class="form-select bk"
+                                title="Martial Status"
+                                asp-for="Client.Martial_Status.Martial_Status_Id"
+                            >
+                                @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
+                                @if(Model.Client.Martial_Status.Martial_Status_Id == martialStatusModel.Martial_Status_Id) {
+                                <option
+                                    value="@martialStatusModel.Martial_Status_Id"
+                                    selected
+                                >
+                                    @martialStatusModel.Description
+                                </option>
+                                } else {
+                                <option
+                                    value="@martialStatusModel.Martial_Status_Id"
+                                >
+                                    @martialStatusModel.Description
+                                </option>
+                                } }
+                            </select>
+                            }
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm-2">
+                            <label for="Birthdate">Birthdate</label>
+                            <input type="date"; 
+                                @* 
+                                type="datetime-local" 
+                                *@
+                                asp-for="Client.Birthdate"
+                                data-date-format="yyyy-MM-dd"
+                                class="form-control bk"
+                                id="Birthdate"
+                                title="Birthdate"
+                                placeholder=""
+                                value="@Model.Client.Birthdate.ToString("yyyy-MM-dd")";
+                                @*
+                                value="@Model.Client.Birthdate.ToString("yyyy-MM-ddThh:mm:ss")"
+                                *@ 
+                                />
+                        </div>
+
+                        <div class="col-sm-3">
+                            
+                            @* 
+                            private DateTime created_at; 
+                            private DateTime
+                            updated_at; private Boolean active = false; 
+                            *@
+
+                            <label for="CreationDate">Creation Date</label>
+                            <input type="datetime-local"
+                            asp-for="Client.Created_at"
+                            data-date-format="yyyy-MM-dd" 
+                            class="form-control bk" 
+                            id="CreationDate" 
+                            title="Date Created"
+                            placeholder=""
+                            value="@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                            /> 
+                            
+                            @*
+                            <label for="edad">Edad</label>
+                            <input
+                                type="number"
+                                class="form-control bk"
+                                id="edad"
+                                asp-for="Client.Edad"
+                                title="Edad"
+                                placeholder="Edad"
+                                value="@Model.Client.Edad"
+                                readonly
+                            />
+                            *@
+
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="DateUpdated">Last Update Date</label>
+                            <input 
+                                type="datetime-local"
+                                asp-for="Client.Updated_at"
+                                data-date-format="yyyy-MM-dd" 
+                                class="form-control bk" 
+                                id="DateUpdated" 
+                                title="Date Updated"
+                                placeholder=""
+                                value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                                />
+                        </div>
+
+                        <div class="col-sm-1">
+                            <label for="Active">Active</label>
+                            @if (@Model.Client.Client_Id == 0) {
+                            <select
+                                id="Active"
+                                class="form-select bk"
+                                title=""
+                                asp-for="Client.Active"
+                            >
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            } else {
+                            <select
+                                id="Active"
+                                class="form-select bk"
+                                title=""
+                                asp-for="Client.Active"
+                            >
+                                @if (Model.Client.Active == true) {
+                                <option value="true" selected>Yes</option>
+                                } else {
+                                <option value="false">No</option>
+                                }
+                            </select>
+                            }
+                        </div>
+                    </div>
+                </fieldset>
+                <br />
+
+                <button 
+                    type="submit" 
+                    class="btn btn-success"
+                    title="Crea el cliente con todos los datos ingresados previamente" 
+                    id="GuardarDatos">
+                        Save
+                </button>
+                @if (Model.Client.Client_Id != 0)
+                {
+                    <a 
+                        href="/Cliente/ConsultaCliente?idCliente=@Model.Client.Client_Id" 
+                        class="btn btn-primary text-white"
+                        title="Consulta los datos del cliente" 
+                        style="margin-left:5px;">
+                            Consult Client
+                    </a>
+                }
+                <a 
+                    href="/Client/ClientList/"
+                    class="btn btn-dark text-white" 
+                    style="margin-left:5px;"
+                    title="Go back to the page where you can find the list of all clients"
+                >
+                        Back to the list of Clients
+                </a>
+                <br />
+            </div>
+        </div>
+    </div>
+</form>
+
+<script
+    src="~/js/validations.js"
+    type="text/javascript"
+    charset="UTF-8"
+    asp-append-version="true"
+></script>
