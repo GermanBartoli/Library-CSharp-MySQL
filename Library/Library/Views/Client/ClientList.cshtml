@@ -71,7 +71,7 @@
                             <td>@client.Birthdate</td>
                             <td style="width:25%;">
                                 <a 
-                                    href="/Client/CreateClient?clientID=@client.Client_Id"
+                                    href="/Client/NewClient?Client_Id=@client.Client_Id"
                                     class="btn btn-warning text-white btn-gral"
                                     title="Button to edit customer data"
                                 >
@@ -85,7 +85,7 @@
                                     Consult
                                 </a>
                                 <a 
-                                    href="/Client/DeshabilitarCliente?idCliente=@client.Client_Id"
+                                    href="/Client/DisableClient?Client_Id=@client.Client_Id"
                                     class="btn btn-danger text-white btn-gral"
                                     title="Button to delete all customer data and records "
                                 >
