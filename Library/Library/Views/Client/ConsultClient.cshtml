@@ -218,7 +218,8 @@
                                 @*
                                 value="@Model.Client.Birthdate.ToString("yyyy-MM-ddThh:mm:ss")"
                                 *@ 
-                                readonly />
+                                readonly
+                            />
                         </div>
 
                         <div class="col-sm-3">
@@ -230,15 +231,17 @@
                             *@
 
                             <label for="CreationDate">Creation Date</label>
-                            <input type="datetime-local"
-                            asp-for="Client.Created_at"
-                            data-date-format="yyyy-MM-dd" 
-                            class="form-control bk" 
-                            id="CreationDate" 
-                            title="Date Created"
-                            placeholder=""
-                            value="@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")"
-                            readonly /> 
+                            <input 
+                                type="datetime-local"
+                                asp-for="Client.Created_at"
+                                data-date-format="yyyy-MM-dd" 
+                                class="form-control bk" 
+                                id="CreationDate" 
+                                title="Date Created"
+                                placeholder=""
+                                value="@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                                readonly 
+                            /> 
                             
                             @*
                             <label for="edad">Edad</label>
@@ -267,7 +270,8 @@
                                 title="Date Updated"
                                 placeholder=""
                                 value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
-                                readonly />
+                                readonly
+                            />
                         </div>
 
                         <div class="col-sm-1">
