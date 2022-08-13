@@ -61,7 +61,7 @@ namespace Library.Controllers
                 bool successAddClient;
 
                 successAddClient = dBMClient.AddClient(dto.Client);
-                dto.Client.Client_Id = dBMClient.GetLastClientByID();
+                dto.Client.Client_Id = dBMClient.GetLastClientID();
 
                 if (successAddClient)
                 {
