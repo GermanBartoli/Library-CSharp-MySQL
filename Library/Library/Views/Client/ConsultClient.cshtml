@@ -127,7 +127,7 @@
                                 readonly
                             />
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-md-2" style="width: 12.499999995%">
                             <label for="Gender">Gender</label>
                             @if (@Model.Client.Client_Id == 0) {
                             <select
@@ -150,8 +150,10 @@
                             >
                                 @if (Model.Client.Gender == "M") {
                                 <option value="M" selected>Male</option>
+                                <option value="F">Female</option>                                
                                 } else {
-                                <option value="F">Female</option>
+                                <option value="M">Male</option>
+                                <option value="F" selected>Female</option>
                                 }
                             </select>
                             }
@@ -202,7 +204,7 @@
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-sm-2">
+                        <div class="col-sm-2" style="width: 12.499999995%">
                             <label for="Birthdate">Birthdate</label>
                             <input type="date"; 
                                 @* 
@@ -222,7 +224,7 @@
                             />
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             
                             @* 
                             private DateTime created_at; 
@@ -259,7 +261,7 @@
 
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <label for="DateUpdated">Last Update Date</label>
                             <input 
                                 type="datetime-local"
@@ -280,7 +282,7 @@
                             <select
                                 id="Active"
                                 class="form-select bk"
-                                title=""
+                                title="Active"
                                 asp-for="Client.Active"
                                 disabled
                             >
@@ -297,8 +299,10 @@
                             >
                                 @if (Model.Client.Active == true) {
                                 <option value="true" selected>Yes</option>
+                                <option value="false">No</option>                                
                                 } else {
-                                <option value="false">No</option>
+                                <option value="true">Yes</option>
+                                <option value="false" selected>No</option>
                                 }
                             </select>
                             }
@@ -310,7 +314,7 @@
         
         <br />
         <a
-            href="/Client/NewClient?clientID=@Model.Client.Client_Id"
+            href="/Client/NewClient?Client_Id=@Model.Client.Client_Id"
             class="btn btn-warning text-white btn-gral"
             title="Button to edit customer data"
         >
