@@ -128,7 +128,7 @@
                                 value="@Model.Client.Email"
                             />
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-md-2" style="width: 12.499999995%">
                             <label for="Gender">Gender</label>
                             @if (@Model.Client.Client_Id == 0) {
                             <select
@@ -149,8 +149,10 @@
                             >
                                 @if (Model.Client.Gender == "M") {
                                 <option value="M" selected>Male</option>
+                                <option value="F">Female</option>                                
                                 } else {
-                                <option value="F">Female</option>
+                                <option value="F">Male</option>                                            
+                                <option value="F" selected>Female</option>
                                 }
                             </select>
                             }
@@ -199,9 +201,9 @@
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-sm-2">
+                        <div class="col-sm-2" style="width: 12.499999995%">
                             <label for="Birthdate">Birthdate</label>
-                            <input type="date"; 
+                            <input type="date"
                                 @* 
                                 type="datetime-local" 
                                 *@
@@ -211,14 +213,15 @@
                                 id="Birthdate"
                                 title="Birthdate"
                                 placeholder=""
-                                value="@Model.Client.Birthdate.ToString("yyyy-MM-dd")";
+                                value="@Model.Client.Birthdate.ToString("yyyy-MM-dd")"
+                                required
                                 @*
                                 value="@Model.Client.Birthdate.ToString("yyyy-MM-ddThh:mm:ss")"
                                 *@ 
                                 />
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             
                             @* 
                             private DateTime created_at; 
@@ -227,16 +230,20 @@
                             *@
 
                             <label for="CreationDate">Creation Date</label>
-                            <input type="datetime-local"
-                            asp-for="Client.Created_at"
-                            data-date-format="yyyy-MM-dd" 
-                            class="form-control bk" 
-                            id="CreationDate" 
-                            title="Date Created"
-                            placeholder=""
-                            value="@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")"
-                            /> 
-                            
+                            <input 
+                                type="datetime-local"
+                                asp-for="Client.Created_at"
+                                data-date-format="yyyy-MM-dd" 
+                                class="form-control bk" 
+                                id="CreationDate"
+                                title="Date Created"
+                                placeholder=""
+                                value=@(Model.Client.Client_Id == 0 ? DateTime.Now.ToString("yyyy-MM-ddThh:mm:ss") : Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss"))
+                                disabled
+                            />
+                            @* value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm:ss")" *@
+                            @* value="@@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")" *@
+
                             @*
                             <label for="edad">Edad</label>
                             <input
@@ -253,7 +260,8 @@
 
                         </div>
 
-                        <div class="col-sm-3">
+                        @*
+                        <div class="col-sm-2">
                             <label for="DateUpdated">Last Update Date</label>
                             <input 
                                 type="datetime-local"
@@ -276,7 +284,7 @@
                                 title=""
                                 asp-for="Client.Active"
                             >
-                                <option value="true">Yes</option>
+                                <option value="true" selected>Yes</option>
                                 <option value="false">No</option>
                             </select>
                             } else {
@@ -288,12 +296,16 @@
                             >
                                 @if (Model.Client.Active == true) {
                                 <option value="true" selected>Yes</option>
+                                <option value="false">No</option>                                
                                 } else {
-                                <option value="false">No</option>
+                                 <option value="true">Yes</option>
+                                <option value="false" selected>No</option> 
                                 }
                             </select>
                             }
                         </div>
+                        *@
+
                     </div>
                 </fieldset>
                 <br />
@@ -308,9 +320,9 @@
                 @if (Model.Client.Client_Id != 0)
                 {
                     <a 
-                        href="/Cliente/ConsultaCliente?idCliente=@Model.Client.Client_Id" 
+                        href="/Client/ConsultClient?Client_Id=@Model.Client.Client_Id" 
                         class="btn btn-primary text-white"
-                        title="Consulta los datos del cliente" 
+                        title="Check client data" 
                         style="margin-left:5px;">
                             Consult Client
                     </a>
