@@ -69,7 +69,7 @@ public class DBMClient
         return clientList;
     }
 
-    public bool AddClient (ClientModel client)
+    public bool AddClient(ClientModel client)
     {
         int rowsAffected = 0;
 
