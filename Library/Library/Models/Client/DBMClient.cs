@@ -95,8 +95,6 @@ public class DBMClient
                         ,@email -- email - VARCHAR(100) NOT NULL
                         ,@birthdate -- birthdate - DATE
                         ,@gender -- gender - ENUM('M','F')
-                        ,@created_at -- created_at - TIMESTAMP NOT NULL
-                        ,@updated_at -- updated_at - TIMESTAMP NOT NULL
                         ,@active -- active - TINYINT NOT NULL
                         );";
 
@@ -108,8 +106,6 @@ public class DBMClient
         command.Parameters.AddWithValue("@email", client.Email);
         command.Parameters.AddWithValue("@birthdate", client.Birthdate);
         command.Parameters.AddWithValue("@gender", client.Gender);
-        command.Parameters.AddWithValue("@created_at", client.Created_at);
-        command.Parameters.AddWithValue("@updated_at", client.Updated_at);
 
         command.Parameters.AddWithValue("@active", 1);
 
@@ -144,8 +140,6 @@ public class DBMClient
                           ,email = @email -- email - VARCHAR(100) NOT NULL
                           ,birthdate = @birthdate -- birthdate - DATE
                           ,gender = @gender -- gender - ENUM('M','F')
-                          ,created_at = @created_at -- created_at - TIMESTAMP NOT NULL
-                          ,updated_at = @updated_at -- updated_at - TIMESTAMP NOT NULL
                           ,active = @active -- active - TINYINT NOT NULL
                         WHERE
                           client_id = @client_id  -- client_id - INT NOT NULL;";
@@ -157,10 +151,9 @@ public class DBMClient
         command.Parameters.AddWithValue("@email", client.Email);
         command.Parameters.AddWithValue("@birthdate", client.Birthdate);
         command.Parameters.AddWithValue("@gender", client.Gender);
-        command.Parameters.AddWithValue("@created_at", client.Created_at);
-        command.Parameters.AddWithValue("@updated_at", client.Updated_at);
+        command.Parameters.AddWithValue("@active", true);
 
-        command.Parameters.AddWithValue("@idCliente", client.Client_Id);
+        command.Parameters.AddWithValue("@client_id", client.Client_Id);
 
         connection.Open();
 
