@@ -63,7 +63,7 @@
             aria-labelledby="pills-home-tab"
         >
             <div class="form-content bk mt-1">
-                @if (@Model.Client is null || Model.Client.Client_Id == 0) {
+                @if (Model.Client.Client_Id == 0) {
                 <input
                     type="text"
                     class="form-control bk"
@@ -112,8 +112,9 @@
                                 asp-for="Client.Name"
                                 id="Name"
                                 title="Full Name"
-                                placeholder=""
+                                placeholder="Name"
                                 value="@Model.Client.Name"
+                                autofocus 
                             />
                         </div>
                         <div class="col-sm-4">
@@ -204,22 +205,23 @@
                         <div class="col-sm-2" style="width: 12.499999995%">
                             <label for="Birthdate">Birthdate</label>
                             <input type="date"
-                                @* 
-                                type="datetime-local" 
-                                *@
                                 asp-for="Client.Birthdate"
-                                @*data-date-format="dd-MM-yyyy"*@
-                                pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"  
                                 class="form-control bk"
                                 id="Birthdate"
                                 title="Birthdate"
                                 placeholder=""
-                                value="@Model.Client.Birthdate.ToString("yyyy-MM-dd")"
+                                value="@Model.Client.Birthdate.ToString("yyyy-MM-dd")" 
                                 required
-                                @*
-                                value="@Model.Client.Birthdate.ToString("yyyy-MM-ddThh:mm:ss")"
-                                *@ 
                                 />
+
+                                @*Comentar siempre afuera*@
+                                @*value="@Model.Client.Birthdate.ToString("yyyy-MM-ddThh:mm:ss")"*@
+                                @* value="@Model.Client.Birthdate" *@
+                                @*type="datetime-local"*@
+                                @*data-date-format="dd-MM-yyyy"*@
+                                @*pattern="\d{1,2}/\d{1,2}/\d{4}"*@
+                                @*asp-format="{0:yyyy-MM-dd}"*@
+                                @* data-date-format="yyyy-MM-dd"  *@
                         </div>
 
                         <div class="col-sm-2">
@@ -242,6 +244,7 @@
                                 value=@(Model.Client.Client_Id == 0 ? DateTime.Now.ToString("yyyy-MM-ddThh:mm:ss") : Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss"))
                                 disabled
                             />
+                            @*Si es disabled el valor no lo manda*@
                             @* value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm:ss")" *@
                             @* value="@@Model.Client.Created_at.ToString("yyyy-MM-ddThh:mm:ss")" *@
 
@@ -262,7 +265,7 @@
                         </div>
 
                         @if (@Model.Client.Client_Id != 0) {
-                        <div class="col-sm-2">
+                        <div class="col-sm-2" style="width: 17%">
                             <label for="DateUpdated">Last Update Date</label>
                             <input 
                                 type="datetime-local"
@@ -273,6 +276,7 @@
                                 title="Date Updated"
                                 placeholder=""
                                 value="@Model.Client.Updated_at.ToString("yyyy-MM-ddThh:mm:ss")"
+                                disabled
                                 />
                         </div>
 
@@ -306,7 +310,6 @@
                             }
                         </div>
                         }
-
                     </div>
                 </fieldset>
                 <br />
