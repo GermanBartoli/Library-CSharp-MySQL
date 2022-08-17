@@ -4,19 +4,19 @@ namespace Library.Models.Book;
 
 public class BookModel
 {
-    private int book_id = 0;
-    private AuthorModel author = new();
-    private string title = "";
+    private int book_id;
+    private AuthorModel author;
+    private string title;
     private DateTime year;
-    private string language = "";
-    private string cover_url = "";
-    private double price = 0;
-    private bool sellable = false;
-    private int copies = 0;
-    private string description = "";
+    private string language;
+    private string cover_url;
+    private double price;
+    private bool sellable;
+    private int copies;
+    private string description;
     private DateTime created_at;
     private DateTime updated_at;
-    private bool active = false;
+    private bool active;
 
     public BookModel(
         int book_id,
@@ -50,6 +50,19 @@ public class BookModel
 
     public BookModel()
     {
+        book_id = 0;
+        author = new();
+        title = "";
+        year = DateTime.Now;
+        language = "";
+        cover_url = "";
+        price = 0;
+        sellable = false;
+        copies = 0;
+        description = "";
+        created_at = DateTime.Now;
+        updated_at = DateTime.Now;
+        active = false;
     }
 
     public int Book_id { get => book_id; set => book_id = value; }
