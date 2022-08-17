@@ -2,12 +2,12 @@
 
 public class AuthorModel
 {
-    private int author_id = 0;
-    private string name = "";
-    private string nationality = "";
+    private int author_id;
+    private string name;
+    private string nationality;
     private DateTime create_at;
     private DateTime updated_at;
-    private bool active = false;
+    private bool active;
 
     public AuthorModel(
         int author_id,
@@ -27,6 +27,12 @@ public class AuthorModel
 
     public AuthorModel()
     {
+      author_id = 0;
+      name = "";
+      nationality = "";
+      create_at = DateTime.Now;
+      updated_at = DateTime.Now;
+      active = false;
     }
 
     public int Author_id { get => author_id; set => author_id = value; }
