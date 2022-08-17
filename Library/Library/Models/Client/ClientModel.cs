@@ -1,21 +1,21 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using Library.Models.Client.MartialStatus;
 
 namespace Library.Models.Client;
 
 public partial class ClientModel
 {
-    private int client_id = 0;
-    private MartialStatusModel martial_status = new();
-    private string name = "";
+    private int client_id;
+    private MartialStatusModel martial_status;
+    private string name;
     [Required]
-    private string email = "";
+    private string email;
     private DateTime birthdate;
-    private string gender = "";
-
+    private string gender;
     private DateTime created_at;
     private DateTime updated_at;
-    private Boolean active = false;
+    private Boolean active;
 
     public ClientModel(
         int client_id,
@@ -41,6 +41,18 @@ public partial class ClientModel
 
     public ClientModel()
     {
+        client_id = 0;
+        martial_status = new();
+        name = "";
+        email = "";
+        birthdate = DateTime.Now;
+        //birthdate_format = Convert.ToDateTime(birthdate.ToString("yyyy-MM-dd"));
+        // birthdate_format = DateTime.ParseExact(birthdate.ToString("dd/MM/yyyy"),"yyyy/MM/dd", CultureInfo.InvariantCulture);
+        // birthdate_format = DateTime.Parse(birthdate.ToString("dd/MM/yyyy"),"yyyy-MM-dd", CultureInfo.InvariantCulture);        
+        gender = "";
+        created_at = DateTime.Now;
+        updated_at = DateTime.Now;
+        active = false;
     }
 
     public int Client_Id { get => client_id; set => client_id = value; }
