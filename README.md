@@ -15,10 +15,12 @@
 
 # Images
 
-![Client List](https://user-images.githubusercontent.com/53313625/185172850-3d2a34d9-f647-4868-a5df-b3d8fc42ee8b.png)
+![Client List](https://user-images.githubusercontent.com/53313625/185270747-d9175719-b845-4804-9ff0-ef66a2554cb1.png)
 
-![New Client](https://user-images.githubusercontent.com/53313625/185175967-c128cacd-f410-4aba-ad9d-c8c6f09c749f.png)
+![New Client](https://user-images.githubusercontent.com/53313625/185270780-24de1f0b-70a0-4a68-9cd7-17bd0c40a96a.png)
 
-![Edit Client](https://user-images.githubusercontent.com/53313625/185175837-f4283c73-2b34-4a06-9027-5453d6819b55.png)
+![Edit Client](https://user-images.githubusercontent.com/53313625/185270838-5f5fe5e0-3be2-41bf-92ec-ef7e0f926119.png)
+
+![Consult Client](https://user-images.githubusercontent.com/53313625/185270880-ca9a5a8e-8a57-436e-b417-a525e8ff5076.png)
 
 ![Tabla Libros con Command Line](https://user-images.githubusercontent.com/53313625/179322557-0a71c2da-b9af-4ceb-b5fd-4ebe02d98231.png)
