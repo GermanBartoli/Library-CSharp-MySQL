@@ -10,7 +10,7 @@
 ## Index
 
 - Introduction MySQL Platzi Folder
-  - [Library Project](https://github.com/bartoligerman497/Introduction-MySQL-Platzi/tree/main/Library)
+  - [Library Project](https://github.com/bartoligerman497/Introduction-MySQL-Platzi/tree/main/Library/Library)
 - [Images](#images)
 
 # Images
