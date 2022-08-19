@@ -135,7 +135,7 @@
                                 class="form-select bk"
                                 asp-for="Client.Gender"
                                 title="Corresponding gender, Male or Female"
-                                disabled
+                                readonly
                             >
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
@@ -146,7 +146,7 @@
                                 class="form-select bk"
                                 asp-for="Client.Gender"
                                 title="Corresponding gender, Male or Female"
-                                disabled
+                                readonly
                             >
                                 @if (Model.Client.Gender == "M") {
                                 <option value="M" selected>Male</option>
@@ -166,7 +166,7 @@
                                 class="form-select bk"
                                 title="Martial Status"
                                 asp-for="Client.Martial_Status.Martial_Status_Id"
-                                disabled
+                                readonly
                             >
                                 @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
                                 <option
@@ -182,7 +182,7 @@
                                 class="form-select bk"
                                 title="Martial Status"
                                 asp-for="Client.Martial_Status.Martial_Status_Id"
-                                disabled
+                                readonly
                             >
                                 @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
                                 @if(Model.Client.Martial_Status.Martial_Status_Id == martialStatusModel.Martial_Status_Id) {
@@ -284,7 +284,7 @@
                                 class="form-select bk"
                                 title="Active"
                                 asp-for="Client.Active"
-                                disabled
+                                readonly
                             >
                                 <option value="true">Yes</option>
                                 <option value="false">No</option>
@@ -295,7 +295,7 @@
                                 class="form-select bk"
                                 title=""
                                 asp-for="Client.Active"
-                                disabled
+                                readonly
                             >
                                 @if (Model.Client.Active == true) {
                                 <option value="true" selected>Yes</option>
