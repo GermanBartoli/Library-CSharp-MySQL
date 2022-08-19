@@ -60,7 +60,7 @@ namespace Library.Controllers
             {
                 bool successAddClient;
 
-                successAddClient = dBMClient.AddClient(dto.Client);
+                successAddClient = dBMClient.InsertClient(dto.Client);
                 dto.Client.Client_Id = dBMClient.GetLastClientID();
 
                 if (successAddClient)
@@ -76,7 +76,7 @@ namespace Library.Controllers
             {
                 bool successEditClient;
 
-                successEditClient = dBMClient.EditClient(dto.Client);
+                successEditClient = dBMClient.UpdateClient(dto.Client);
 
                 if (successEditClient)
                 {
