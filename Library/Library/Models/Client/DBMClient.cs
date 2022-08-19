@@ -13,22 +13,25 @@ public class DBMClient
         MySqlConnection connection = new MySqlConnection(DBMConnection.ConnectionString);
 
         string consult =
-                        @"
-                        SELECT
-                        clients.client_id AS client_id,
-                        martialstatus.martial_status_id AS martial_status_id,
-                        martialstatus.description AS martial_status_description,
-                        clients.name AS name,
-                        clients.email AS email,
-                        clients.birthdate AS birthdate,
-                        clients.gender AS gender,
-                        clients.created_at AS created_at,
-                        clients.updated_at AS updated_at,
-                        clients.active AS active
-                        FROM clients
-                        INNER JOIN martialstatus
-                          ON clients.martial_status_id = martialstatus.martial_status_id
-                        WHERE clients.active = 1";
+        @"
+            SELECT
+                clients.client_id AS client_id,
+                martialstatus.martial_status_id AS martial_status_id,
+                martialstatus.description AS martial_status_description,
+                clients.name AS name,
+                clients.email AS email,
+                clients.birthdate AS birthdate,
+                clients.gender AS gender,
+                clients.created_at AS created_at,
+                clients.updated_at AS updated_at,
+                clients.active AS active
+            FROM 
+                clients
+            INNER JOIN martialstatus
+                ON clients.martial_status_id = martialstatus.martial_status_id
+            WHERE
+                clients.active = 1
+        ";
 
         MySqlCommand command = new MySqlCommand(consult, connection);
         command.CommandType = CommandType.Text;
@@ -69,34 +72,33 @@ public class DBMClient
         return clientList;
     }
 
-    public bool AddClient(ClientModel client)
+    public bool InsertClient(ClientModel client)
     {
         int rowsAffected = 0;
 
         MySqlConnection connection = new MySqlConnection(DBMConnection.ConnectionString);
 
         string consult =
-                        @"
-                        INSERT INTO clients
-                        (
-                        martial_status_id
-                        ,name
-                        ,email
-                        ,birthdate
-                        ,gender
-                        ,created_at
-                        ,updated_at
-                        ,active
-                        )
-                        VALUES
-                        (
-                        @martial_status_id -- martial_status_id - INT NOT NULL
-                        ,@name -- name - VARCHAR(50)
-                        ,@email -- email - VARCHAR(100) NOT NULL
-                        ,@birthdate -- birthdate - DATE
-                        ,@gender -- gender - ENUM('M','F')
-                        ,@active -- active - TINYINT NOT NULL
-                        );";
+        @"
+            INSERT INTO clients
+            (
+                martial_status_id
+                ,name
+                ,email
+                ,birthdate
+                ,gender
+                ,active
+            )
+            VALUES
+            (
+                @martial_status_id -- martial_status_id - INT NOT NULL
+                ,@name -- name - VARCHAR(50)
+                ,@email -- email - VARCHAR(100) NOT NULL
+                ,@birthdate -- birthdate - DATE
+                ,@gender -- gender - ENUM('M','F')
+                ,@active -- active - TINYINT NOT NULL
+            );
+        ";
 
         MySqlCommand command = new MySqlCommand(consult, connection);
         command.CommandType = CommandType.Text;
@@ -125,24 +127,25 @@ public class DBMClient
         }
     }
 
-    public bool EditClient(ClientModel client)
+    public bool UpdateClient(ClientModel client)
     {
         int rowsAffected = 0;
 
         MySqlConnection connection = new MySqlConnection(DBMConnection.ConnectionString);
 
         string consult =
-                        @"
-                        UPDATE clients 
-                        SET
-                          martial_status_id = @martial_status_id -- martial_status_id - INT NOT NULL
-                          ,name = @name -- name - VARCHAR(50)
-                          ,email = @email -- email - VARCHAR(100) NOT NULL
-                          ,birthdate = @birthdate -- birthdate - DATE
-                          ,gender = @gender -- gender - ENUM('M','F')
-                          ,active = @active -- active - TINYINT NOT NULL
-                        WHERE
-                          client_id = @client_id  -- client_id - INT NOT NULL;";
+        @"
+            UPDATE clients 
+            SET
+                martial_status_id = @martial_status_id -- martial_status_id - INT NOT NULL
+                ,name = @name -- name - VARCHAR(50)
+                ,email = @email -- email - VARCHAR(100) NOT NULL
+                ,birthdate = @birthdate -- birthdate - DATE
+                ,gender = @gender -- gender - ENUM('M','F')
+                ,active = @active -- active - TINYINT NOT NULL
+            WHERE
+              client_id = @client_id  -- client_id - INT NOT NULL;
+        ";
 
         MySqlCommand command = new MySqlCommand(consult, connection);
 
@@ -177,11 +180,12 @@ public class DBMClient
 
         MySqlConnection connection = new MySqlConnection(DBMConnection.ConnectionString);
 
-        string consult = @"
-                                Update clients
-                                set active = false
-                                where client_id = @client_id
-                                ";
+        string consult = 
+        @"
+            Update clients
+                set active = false
+            where client_id = @client_id
+        ";
 
         MySqlCommand command = new();
 
@@ -212,23 +216,27 @@ public class DBMClient
         DTOModel dto = new();
 
         String consult =
-                        @"
-                        SELECT
-                        clients.client_id AS client_id,
-                        martialstatus.martial_status_id AS martial_status_id,
-                        martialstatus.description AS martial_status_description,
-                        clients.name AS name,
-                        clients.email AS email,
-                        clients.birthdate AS birthdate,
-                        clients.gender AS gender,
-                        clients.created_at AS created_at,
-                        clients.updated_at AS updated_at,
-                        clients.active AS active
-                        FROM clients
-                        INNER JOIN martialstatus
-                          ON clients.martial_status_id = martialstatus.martial_status_id
-                        WHERE clients.active = 1 and
-                        clients.client_id = @client_ID;";
+        @"
+            SELECT
+                clients.client_id AS client_id,
+                martialstatus.martial_status_id AS martial_status_id,
+                martialstatus.description AS martial_status_description,
+                clients.name AS name,
+                clients.email AS email,
+                clients.birthdate AS birthdate,
+                clients.gender AS gender,
+                clients.created_at AS created_at,
+                clients.updated_at AS updated_at,
+                clients.active AS active
+            FROM 
+                clients
+            INNER JOIN martialstatus
+                ON clients.martial_status_id = martialstatus.martial_status_id
+            WHERE 
+                clients.active = 1 
+                    and
+                clients.client_id = @client_ID;
+        ";
 
         MySqlConnection connection = new MySqlConnection(DBMConnection.ConnectionString);
 
@@ -283,7 +291,7 @@ public class DBMClient
 
             string consult =
                 "SELECT " +
-                "MAX(client_id) " +
+                    "MAX(client_id) " +
                 "FROM Client";
 
             MySqlCommand command = new MySqlCommand(consult, connection);
