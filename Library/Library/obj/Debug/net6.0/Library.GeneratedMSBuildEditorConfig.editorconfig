@@ -15,6 +15,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\German\Documents\GitHub\Curso-Introduccion-MySQL-Platzi\Library\Library
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/German/Documents/GitHub/Curso-Introduccion-MySQL-Platzi/Library/Library/Views/Author/AuthorList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEF1dGhvckxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/German/Documents/GitHub/Curso-Introduccion-MySQL-Platzi/Library/Library/Views/Author/ConsultAuthor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXENvbnN1bHRBdXRob3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/German/Documents/GitHub/Curso-Introduccion-MySQL-Platzi/Library/Library/Views/Author/NewAuthor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXE5ld0F1dGhvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/German/Documents/GitHub/Curso-Introduccion-MySQL-Platzi/Library/Library/Views/Client/ClientList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XENsaWVudExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
