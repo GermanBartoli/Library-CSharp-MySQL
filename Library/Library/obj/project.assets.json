@@ -63,10 +63,7 @@
             "packagesPath": "C:\\Users\\German\\.nuget\\packages\\",
             "outputPath": "C:\\Users\\German\\Documents\\GitHub\\Curso-Introduccion-MySQL-Platzi\\Library\\Library\\obj\\",
             "projectStyle": "PackageReference",
-            "configFilePaths": [
-                "C:\\Users\\German\\AppData\\Roaming\\NuGet\\NuGet.Config",
-                "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-            ],
+            "configFilePaths": ["C:\\Users\\German\\AppData\\Roaming\\NuGet\\NuGet.Config", "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"],
             "originalTargetFrameworks": ["net6.0"],
             "sources": {
                 "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},

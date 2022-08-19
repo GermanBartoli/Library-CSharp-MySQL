@@ -107,7 +107,7 @@ public class DBMAuthor
 
         MySqlConnection connection = new MySqlConnection(DBMConnection.ConnectionString);
 
-        string consult = 
+        string consult =
         @"
             UPDATE authors 
             SET
@@ -148,7 +148,7 @@ public class DBMAuthor
 
         MySqlConnection connection = new MySqlConnection(DBMConnection.ConnectionString);
 
-        string consult = 
+        string consult =
         @"
             Update 
                 authors

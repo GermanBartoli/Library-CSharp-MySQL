@@ -180,7 +180,7 @@ public class DBMClient
 
         MySqlConnection connection = new MySqlConnection(DBMConnection.ConnectionString);
 
-        string consult = 
+        string consult =
         @"
             Update clients
                 set active = false

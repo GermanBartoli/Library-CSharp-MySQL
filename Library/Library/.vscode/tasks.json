@@ -5,24 +5,14 @@
             "label": "build",
             "command": "dotnet",
             "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Library.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
+            "args": ["build", "${workspaceFolder}/Library.csproj", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
             "problemMatcher": "$msCompile"
         },
         {
             "label": "publish",
             "command": "dotnet",
             "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/Library.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
+            "args": ["publish", "${workspaceFolder}/Library.csproj", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
             "problemMatcher": "$msCompile"
         },
         {

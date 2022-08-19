@@ -27,12 +27,12 @@ public class AuthorModel
 
     public AuthorModel()
     {
-      author_id = 0;
-      name = "";
-      nationality = "";
-      created_at = DateTime.Now;
-      updated_at = DateTime.Now;
-      active = false;
+        author_id = 0;
+        name = "";
+        nationality = "";
+        created_at = DateTime.Now;
+        updated_at = DateTime.Now;
+        active = false;
     }
 
     public int Author_Id { get => author_id; set => author_id = value; }
