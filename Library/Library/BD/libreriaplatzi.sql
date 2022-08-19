@@ -151,7 +151,7 @@ CREATE TABLE authors (
   author_id int UNSIGNED NOT NULL AUTO_INCREMENT,
   name varchar(100) NOT NULL,
   nationality varchar(100) DEFAULT NULL,
-  create_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   active tinyint UNSIGNED NOT NULL DEFAULT 1,
   PRIMARY KEY (author_id)
