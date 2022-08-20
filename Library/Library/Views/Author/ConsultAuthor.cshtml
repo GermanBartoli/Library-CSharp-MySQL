@@ -28,8 +28,15 @@
     </p>
 </div>
 
-<ul class="nav nav-tabs" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
+<ul
+    class="nav nav-tabs"
+    id="pills-tab"
+    role="tablist"
+>
+    <li
+        class="nav-item"
+        role="presentation"
+    >
         <button
             class="nav-link active text-red-1"
             id="pills-home-tab"
@@ -82,10 +89,11 @@
                 />
                 }
 
-                <fieldset class="scheduler-border" id="personal-information">
-                    <legend class="scheduler-border text-red-1">
-                        Personal Information
-                    </legend>
+                <fieldset
+                    class="scheduler-border"
+                    id="personal-information"
+                >
+                    <legend class="scheduler-border text-red-1">Personal Information</legend>
                     <div class="row">
                         <div class="col-sm-1">
                             <label for="Author_Id">ID</label>
@@ -156,7 +164,10 @@
                         </div>
 
                         @if (@Model.Author.Author_Id != 0) {
-                        <div class="col-sm-2" style="width: 17%">
+                        <div
+                            class="col-sm-2"
+                            style="width: 17%"
+                        >
                             <label for="DateUpdated">Last Update Date</label>
                             <input 
                                 type="datetime-local"
@@ -181,7 +192,12 @@
                                 asp-for="Author.Active"
                                 readonly
                             >
-                                <option value="true" selected>Yes</option>
+                                <option
+                                    value="true"
+                                    selected
+                                >
+                                    Yes
+                                </option>
                                 <option value="false">No</option>
                             </select>
                             } else {
@@ -193,11 +209,21 @@
                                 readonly
                             >
                                 @if (Model.Author.Active == true) {
-                                <option value="true" selected>Yes</option>
-                                <option value="false">No</option>                                
+                                <option
+                                    value="true"
+                                    selected
+                                >
+                                    Yes
+                                </option>
+                                <option value="false">No</option>
                                 } else {
-                                 <option value="true">Yes</option>
-                                <option value="false" selected>No</option> 
+                                <option value="true">Yes</option>
+                                <option
+                                    value="false"
+                                    selected
+                                >
+                                    No
+                                </option>
                                 }
                             </select>
                             }
@@ -214,13 +240,13 @@
                 >
                     Edit
                 </a>
-                <a 
+                <a
                     href="/Author/AuthorList/"
-                    class="btn btn-dark text-white" 
-                    style="margin-left:5px;"
+                    class="btn btn-dark text-white"
+                    style="margin-left: 5px"
                     title="Go back to the page where you can find the list of all authors"
                 >
-                        Back to the list of Authors
+                    Back to the list of Authors
                 </a>
                 <br />
             </div>
