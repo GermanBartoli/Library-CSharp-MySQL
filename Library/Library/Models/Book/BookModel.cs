@@ -7,7 +7,7 @@ public class BookModel
     private int book_id;
     private AuthorModel author;
     private string title;
-    private DateTime year;
+    private int year;
     private string language;
     private string cover_url;
     private double price;
@@ -22,7 +22,7 @@ public class BookModel
         int book_id,
         AuthorModel author,
         string title,
-        DateTime year,
+        int year,
         string language,
         string cover_url,
         double price,
@@ -53,7 +53,7 @@ public class BookModel
         book_id = 0;
         author = new();
         title = "";
-        year = DateTime.Now;
+        year = 0;
         language = "";
         cover_url = "";
         price = 0;
@@ -65,10 +65,10 @@ public class BookModel
         active = false;
     }
 
-    public int Book_id { get => book_id; set => book_id = value; }
+    public int Book_Id { get => book_id; set => book_id = value; }
     public AuthorModel Author { get => author; set => author = value; }
     public string Title { get => title; set => title = value; }
-    public DateTime Year { get => year; set => year = value; }
+    public int Year { get => year; set => year = value; }
     public string Language { get => language; set => language = value; }
     public string Cover_url { get => cover_url; set => cover_url = value; }
     public double Price { get => price; set => price = value; }
