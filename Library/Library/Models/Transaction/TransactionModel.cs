@@ -52,7 +52,7 @@ public class TransactionModel
         active = false;
     }
 
-    public int Transaction_id { get => transaction_id; set => transaction_id = value; }
+    public int Transaction_Id { get => transaction_id; set => transaction_id = value; }
     public BookModel Book { get => book; set => book = value; }
     public ClientModel Client { get => client; set => client = value; }
     public DateTime Date { get => date; set => date = value; }
