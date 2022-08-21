@@ -3,8 +3,14 @@
 
 @model DTOModel;
 
+@* 
+    Ideas:
+    Buscador de clientes 
+    Disable Button en Edit View
+ *@
+
 @{
-    ViewData["Title"] = "Customer Management";
+    ViewData["Title"] = "Client Management";
     ViewData["Objeto"] = "Client";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -89,7 +95,7 @@
                                     class="btn btn-danger text-white btn-gral"
                                     title="Button to delete all customer data and records "
                                 >
-                                    Delete
+                                    Disable
                                 </a>
                             </td>
                         </tr>
@@ -128,6 +134,17 @@
                 </thead>
                 <tbody>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Birthdate</th>
+                        <th>Martial Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </tfoot>
             </table>
         }
     }
