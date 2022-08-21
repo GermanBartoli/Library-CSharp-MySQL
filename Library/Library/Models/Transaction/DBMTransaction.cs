@@ -4,6 +4,7 @@ using MySqlConnector;
 
 namespace Library.Models.Transaction.DBMTransaction;
 
-public class DBMTransaction{
-    
+public class DBMTransaction
+{
+
 }

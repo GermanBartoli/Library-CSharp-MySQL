@@ -72,7 +72,7 @@ public class DBMBook
             book.Year = Convert.IsDBNull(reader.GetValue("year")) ? 0 : reader.GetInt32("year");
             book.Language = Convert.IsDBNull(reader.GetValue("language")) ? string.Empty : reader.GetString("language");
             book.Cover_url = Convert.IsDBNull(reader.GetValue("cover_url")) ? string.Empty : reader.GetString("cover_url");
-            book.Price  =  Convert.IsDBNull(reader.GetValue("price")) ? 0 : reader.GetDouble("price");
+            book.Price = Convert.IsDBNull(reader.GetValue("price")) ? 0 : reader.GetDouble("price");
             book.Sellable = Convert.IsDBNull(reader.GetValue("sellable")) ? false : reader.GetBoolean("sellable");
             book.Copies = Convert.IsDBNull(reader.GetValue("copies")) ? 0 : reader.GetInt32("copies");
             book.Description = Convert.IsDBNull(reader.GetValue("description")) ? string.Empty : reader.GetString("description");
@@ -84,7 +84,7 @@ public class DBMBook
 
             book.Created_at = Convert.IsDBNull(reader.GetValue("created_at")) ? DateTime.Now : reader.GetDateTime("created_at");
             book.Updated_at = Convert.IsDBNull(reader.GetValue("updated_at")) ? DateTime.Now : reader.GetDateTime("updated_at");
-            
+
             book.Active = Convert.IsDBNull(reader.GetValue("active")) ? false : reader.GetBoolean("active");
 
             bookList.Add(book);

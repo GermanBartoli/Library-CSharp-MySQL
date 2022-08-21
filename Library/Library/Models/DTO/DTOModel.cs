@@ -19,15 +19,15 @@ public class DTOModel
     private TransactionModel transaction;
     private List<TransactionModel> transactionList;
 
-        public DTOModel(
-        ClientModel client,
-        List<ClientModel> clientList,
-        AuthorModel author,
-        List<AuthorModel> authorList,
-        BookModel book,
-        List<BookModel> bookList,
-        TransactionModel transaction,
-        List<TransactionModel> transactionList)
+    public DTOModel(
+    ClientModel client,
+    List<ClientModel> clientList,
+    AuthorModel author,
+    List<AuthorModel> authorList,
+    BookModel book,
+    List<BookModel> bookList,
+    TransactionModel transaction,
+    List<TransactionModel> transactionList)
     {
         this.client = client;
         this.clientList = clientList;
