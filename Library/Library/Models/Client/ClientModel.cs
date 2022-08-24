@@ -60,7 +60,7 @@ public partial class ClientModel
     public MartialStatusModel Martial_Status { get => martial_status; set => martial_status = value; }
     public string Name { get => name; set => name = value; }
     [Required]
-    [EmailAddress] 
+    [EmailAddress]
     // No funciona
     public string Email { get => email; set => email = value; }
     public DateTime Birthdate { get => birthdate; set => birthdate = value; }

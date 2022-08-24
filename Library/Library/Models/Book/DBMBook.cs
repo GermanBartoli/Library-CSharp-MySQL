@@ -307,7 +307,7 @@ public class DBMBook
 
         while (reader.Read())
         {
-//Console.WriteLine(reader.GetInt32(0));
+            //Console.WriteLine(reader.GetInt32(0));
 
             BookModel book = new();
             book.Book_Id = Convert.IsDBNull(reader.GetValue("book_id")) ? 0 : reader.GetInt32("book_id");

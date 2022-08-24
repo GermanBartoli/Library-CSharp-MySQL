@@ -30,7 +30,7 @@ public class BookController : Controller
         return View(dto);
     }
 
-        public ActionResult NewBook(int? Book_Id)
+    public ActionResult NewBook(int? Book_Id)
     {
         // List<MartialStatusModel> martialStatus = dBMMartialStatus.LoadComboBoxMartialStatus();
 
