@@ -118,7 +118,7 @@
                             />
                         </div>
                         <div class="col-sm-4">
-                            <label for="Email">Email</label>
+                            <label asp-for="Client.Email" for="Email"></label>
                             <input
                                 type="email"
                                 class="form-control bk"
@@ -128,6 +128,8 @@
                                 placeholder="Email"
                                 value="@Model.Client.Email"
                             />
+                            <span asp-validation-for="Client.Email"></span>
+
                         </div>
                         <div class="col-md-2" style="width: 12.499999995%">
                             <label for="Gender">Gender</label>
@@ -152,7 +154,7 @@
                                 <option value="M" selected>Male</option>
                                 <option value="F">Female</option>                                
                                 } else {
-                                <option value="F">Male</option>                                            
+                                <option value="M">Male</option>                                            
                                 <option value="F" selected>Female</option>
                                 }
                             </select>
