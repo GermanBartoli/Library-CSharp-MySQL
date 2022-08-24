@@ -1,5 +1,6 @@
 ﻿using Library.Models.Author;
 using Library.Models.Book;
+using Library.Models.Book.DBMBook;
 using Library.Models.Client;
 using Library.Models.Transaction;
 
@@ -15,6 +16,7 @@ public class DTOModel
 
     private BookModel book;
     private List<BookModel> bookList;
+    private DBMBook dBMBook;
 
     private TransactionModel transaction;
     private List<TransactionModel> transactionList;
@@ -26,6 +28,7 @@ public class DTOModel
     List<AuthorModel> authorList,
     BookModel book,
     List<BookModel> bookList,
+    DBMBook dBMBook,
     TransactionModel transaction,
     List<TransactionModel> transactionList)
     {
@@ -35,6 +38,7 @@ public class DTOModel
         this.authorList = authorList;
         this.book = book;
         this.bookList = bookList;
+        this.dBMBook = dBMBook;
         this.transaction = transaction;
         this.transactionList = transactionList;
     }
@@ -49,6 +53,7 @@ public class DTOModel
 
         book = new();
         bookList = new();
+        dBMBook = new();
 
         transactionList = new();
         transaction = new();
@@ -60,6 +65,7 @@ public class DTOModel
     public List<AuthorModel> AuthorList { get => authorList; set => authorList = value; }
     public BookModel Book { get => book; set => book = value; }
     public List<BookModel> BookList { get => bookList; set => bookList = value; }
+    public DBMBook DBMBook { get => dBMBook; set => dBMBook = value; }
     public TransactionModel Transaction { get => transaction; set => transaction = value; }
     public List<TransactionModel> TransactionList { get => transactionList; set => transactionList = value; }
 }
