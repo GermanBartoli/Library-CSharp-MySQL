@@ -9,7 +9,8 @@ public partial class ClientModel
     private int client_id;
     private MartialStatusModel martial_status;
     private string name;
-    [Required]
+
+
     private string email;
     private DateTime birthdate;
     private string gender;
@@ -58,6 +59,9 @@ public partial class ClientModel
     public int Client_Id { get => client_id; set => client_id = value; }
     public MartialStatusModel Martial_Status { get => martial_status; set => martial_status = value; }
     public string Name { get => name; set => name = value; }
+    [Required]
+    [EmailAddress] 
+    // No funciona
     public string Email { get => email; set => email = value; }
     public DateTime Birthdate { get => birthdate; set => birthdate = value; }
     public string Gender { get => gender; set => gender = value; }
