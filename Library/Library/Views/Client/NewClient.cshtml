@@ -29,8 +29,15 @@
     </p>
 </div>
 
-<ul class="nav nav-tabs" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
+<ul
+    class="nav nav-tabs"
+    id="pills-tab"
+    role="tablist"
+>
+    <li
+        class="nav-item"
+        role="presentation"
+    >
         <button
             class="nav-link active text-red-1"
             id="pills-home-tab"
@@ -83,10 +90,11 @@
                 />
                 }
 
-                <fieldset class="scheduler-border" id="personal-information">
-                    <legend class="scheduler-border text-red-1">
-                        Personal Information
-                    </legend>
+                <fieldset
+                    class="scheduler-border"
+                    id="personal-information"
+                >
+                    <legend class="scheduler-border text-red-1">Personal Information</legend>
                     <div class="row">
                         @*
                         <div class="col-sm-1">
@@ -114,11 +122,14 @@
                                 title="Full Name"
                                 placeholder="Name"
                                 value="@Model.Client.Name"
-                                autofocus 
+                                autofocus
                             />
                         </div>
                         <div class="col-sm-4">
-                            <label asp-for="Client.Email" for="Email"></label>
+                            <label
+                                asp-for="Client.Email"
+                                for="Email"
+                            ></label>
                             <input
                                 type="email"
                                 class="form-control bk"
@@ -129,9 +140,11 @@
                                 value="@Model.Client.Email"
                             />
                             <span asp-validation-for="Client.Email"></span>
-
                         </div>
-                        <div class="col-md-2" style="width: 12.499999995%">
+                        <div
+                            class="col-md-2"
+                            style="width: 12.499999995%"
+                        >
                             <label for="Gender">Gender</label>
                             @if (@Model.Client.Client_Id == 0) {
                             <select
@@ -151,11 +164,21 @@
                                 title="Corresponding gender, Male or Female"
                             >
                                 @if (Model.Client.Gender == "M") {
-                                <option value="M" selected>Male</option>
-                                <option value="F">Female</option>                                
+                                <option
+                                    value="M"
+                                    selected
+                                >
+                                    Male
+                                </option>
+                                <option value="F">Female</option>
                                 } else {
-                                <option value="M">Male</option>                                            
-                                <option value="F" selected>Female</option>
+                                <option value="M">Male</option>
+                                <option
+                                    value="F"
+                                    selected
+                                >
+                                    Female
+                                </option>
                                 }
                             </select>
                             }
@@ -204,7 +227,10 @@
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-sm-2" style="width: 12.499999995%">
+                        <div
+                            class="col-sm-2"
+                            style="width: 12.499999995%"
+                        >
                             <label for="Birthdate">Birthdate</label>
                             <input type="date"
                                 asp-for="Client.Birthdate"
@@ -263,11 +289,13 @@
                                 readonly
                             />
                             *@
-
                         </div>
 
                         @if (@Model.Client.Client_Id != 0) {
-                        <div class="col-sm-2" style="width: 17%">
+                        <div
+                            class="col-sm-2"
+                            style="width: 17%"
+                        >
                             <label for="DateUpdated">Last Update Date</label>
                             <input 
                                 type="datetime-local"
@@ -291,7 +319,12 @@
                                 title=""
                                 asp-for="Client.Active"
                             >
-                                <option value="true" selected>Yes</option>
+                                <option
+                                    value="true"
+                                    selected
+                                >
+                                    Yes
+                                </option>
                                 <option value="false">No</option>
                             </select>
                             } else {
@@ -302,11 +335,21 @@
                                 asp-for="Client.Active"
                             >
                                 @if (Model.Client.Active == true) {
-                                <option value="true" selected>Yes</option>
-                                <option value="false">No</option>                                
+                                <option
+                                    value="true"
+                                    selected
+                                >
+                                    Yes
+                                </option>
+                                <option value="false">No</option>
                                 } else {
-                                 <option value="true">Yes</option>
-                                <option value="false" selected>No</option> 
+                                <option value="true">Yes</option>
+                                <option
+                                    value="false"
+                                    selected
+                                >
+                                    No
+                                </option>
                                 }
                             </select>
                             }
@@ -316,30 +359,32 @@
                 </fieldset>
                 <br />
 
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     class="btn btn-success"
-                    title="Crea el cliente con todos los datos ingresados previamente" 
-                    id="GuardarDatos">
-                        Save
+                    title="Crea el cliente con todos los datos ingresados previamente"
+                    id="GuardarDatos"
+                >
+                    Save
                 </button>
                 @if (Model.Client.Client_Id != 0)
                 {
-                    <a 
-                        href="/Client/ConsultClient?Client_Id=@Model.Client.Client_Id" 
-                        class="btn btn-primary text-white"
-                        title="Check client data" 
-                        style="margin-left:5px;">
-                            Consult Client
-                    </a>
+                <a
+                    href="/Client/ConsultClient?Client_Id=@Model.Client.Client_Id"
+                    class="btn btn-primary text-white"
+                    title="Check client data"
+                    style="margin-left: 5px"
+                >
+                    Consult Client
+                </a>
                 }
-                <a 
+                <a
                     href="/Client/ClientList/"
-                    class="btn btn-dark text-white" 
-                    style="margin-left:5px;"
+                    class="btn btn-dark text-white"
+                    style="margin-left: 5px"
                     title="Go back to the page where you can find the list of all clients"
                 >
-                        Back to the list of Clients
+                    Back to the list of Clients
                 </a>
                 <br />
             </div>
