@@ -135,7 +135,7 @@
                                 class="form-select bk"
                                 asp-for="Client.Gender"
                                 title="Corresponding gender, Male or Female"
-                                readonly
+                                disabled
                             >
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
@@ -146,7 +146,7 @@
                                 class="form-select bk"
                                 asp-for="Client.Gender"
                                 title="Corresponding gender, Male or Female"
-                                readonly
+                                disabled
                             >
                                 @if (Model.Client.Gender == "M") {
                                 <option value="M" selected>Male</option>
@@ -166,7 +166,7 @@
                                 class="form-select bk"
                                 title="Martial Status"
                                 asp-for="Client.Martial_Status.Martial_Status_Id"
-                                readonly
+                                disabled
                             >
                                 @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
                                 <option
@@ -182,7 +182,7 @@
                                 class="form-select bk"
                                 title="Martial Status"
                                 asp-for="Client.Martial_Status.Martial_Status_Id"
-                                readonly
+                                disabled
                             >
                                 @foreach (MartialStatusModel martialStatusModel in ViewBag.MartialStatus) {
                                 @if(Model.Client.Martial_Status.Martial_Status_Id == martialStatusModel.Martial_Status_Id) {
@@ -284,7 +284,7 @@
                                 class="form-select bk"
                                 title="Active"
                                 asp-for="Client.Active"
-                                readonly
+                                disabled
                             >
                                 <option value="true">Yes</option>
                                 <option value="false">No</option>
@@ -295,7 +295,7 @@
                                 class="form-select bk"
                                 title=""
                                 asp-for="Client.Active"
-                                readonly
+                                disabled
                             >
                                 @if (Model.Client.Active == true) {
                                 <option value="true" selected>Yes</option>
@@ -309,35 +309,35 @@
                         </div>
                     </div>
                 </fieldset>
+                <br />
+                <a
+                    href="/Client/NewClient?Client_Id=@Model.Client.Client_Id"
+                    class="btn btn-warning text-white btn-gral"
+                    title="Button to edit the client"
+                >
+                    Edit
+                </a>
+
+                <a 
+                    href="/Client/DisableClient?Client_Id=@Model.Client.Client_Id"
+                    class="btn btn-danger text-white btn-gral"
+                    style="margin-left:5px"
+                    title="Button to disable the Client"
+                >
+                    Disable
+                </a>
+
+                <a
+                    href="/Client/ClientList/"
+                    class="btn btn-dark text-white"
+                    style="margin-left: 5px"
+                    title="Go back to the page where you can find the list of all clients"
+                >
+                    Back to the list of Clients
+                </a>
+                <br />
             </div>
         </div>
-        
-        <br />
-        <a
-            href="/Client/NewClient?Client_Id=@Model.Client.Client_Id"
-            class="btn btn-warning text-white btn-gral"
-            title="Button to edit customer data"
-        >
-            Edit
-        </a>
-
-        <a
-            href="/Client/NewClient?Client_Id=@Model.Client.Client_Id"
-            class="btn btn-warning text-white btn-gral"
-            title="Button to edit customer data"
-        >
-            Disable
-        </a>
-
-        <a
-            href="/Client/ClientList/"
-            class="btn btn-dark text-white"
-            style="margin-left: 5px"
-            title="Go back to the page where you can find the list of all clients"
-        >
-            Back to the list of Clients
-        </a>
-        <br />
     </div>
 </form>
 
