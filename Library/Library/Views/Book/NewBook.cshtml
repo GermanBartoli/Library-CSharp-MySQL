@@ -118,7 +118,7 @@
                                 autofocus 
                             />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-1">
                             <label for="Year">Year</label>
                             @*date*@
                             <input
@@ -131,7 +131,7 @@
                                 value="@Model.Book.Year"
                             />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-1">
                             <label for="Language">Language</label>
                             <input
                                 type="text"
@@ -155,7 +155,7 @@
                                 value="@Model.Book.Cover_url"
                             />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-1">
                             <label for="Price">Price</label>
                             $<input
                                 type="number"
@@ -222,7 +222,6 @@
                         </div>                                                
                     </div>
                     <div class="row mt-4">
-
                         <div class="col-sm-2">
                             
                             @* 
@@ -297,6 +296,33 @@
                         </div>
                         }
                     </div>
+                    @if (@Model.Book.Book_Id != 0) 
+                    {
+                        <div class="row mt-3">
+                            <div class="col-sm-3">
+                                <label for="Author">Author</label>
+                                <input
+                                    type="text"
+                                    class="form-control bk"
+                                    id="Author"
+                                    asp-for="Book.Author.Name"
+                                    title="Author"
+                                    placeholder="Author"
+                                    value="@Model.Book.Author.Name"
+                                />
+                            </div>
+                            <div class="col-sm-3">
+                                <a 
+                                href="/Book/ConsultBook?Book_Id=@Model.Book.Book_Id" 
+                                class="btn btn-primary text-white"
+                                style="margin-left:5px"
+                                title="Check book data" 
+                                >
+                                Change Author
+                                </a>
+                            </div>
+                        </div>
+                    }
                 </fieldset>
                 <br />
 
@@ -313,7 +339,8 @@
                         href="/Book/ConsultBook?Book_Id=@Model.Book.Book_Id" 
                         class="btn btn-primary text-white"
                         style="margin-left:5px"
-                        title="Check book data" >
+                        title="Check book data"
+                    >
                             Consult Book
                     </a>
                     <a 
