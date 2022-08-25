@@ -89,14 +89,15 @@
                     value="@Model.Client.Client_Id"
                 />
                 }
-
+                @{
+                    int newClientId = Model.DBMClient.GetLastClientID() + 1;
+                    }
                 <fieldset
                     class="scheduler-border"
                     id="personal-information"
                 >
                     <legend class="scheduler-border text-red-1">Personal Information</legend>
                     <div class="row">
-                        @*
                         <div class="col-sm-1">
                             <label for="Client_Id">ID</label>
                             <input
@@ -106,11 +107,10 @@
                                 id="Client_Id"
                                 title="ID Client"
                                 placeholder=""
-                                value="@Model.Client.Client_Id"
+                                value=@(Model.Client.Client_Id == 0 ? newClientId : Model.Client.Client_Id)
                                 readonly
                             />
                         </div>
-                        *@
 
                         <div class="col-sm-3">
                             <label for="Name">Name</label>
@@ -250,8 +250,7 @@
                                 @*pattern="\d{1,2}/\d{1,2}/\d{4}"*@
                                 @*asp-format="{0:yyyy-MM-dd}"*@
                                 @* data-date-format="yyyy-MM-dd"  *@
-                        </div>
-
+                        </div>                                                
                         <div class="col-sm-2">
                             
                             @* 
@@ -294,7 +293,6 @@
                         @if (@Model.Client.Client_Id != 0) {
                         <div
                             class="col-sm-2"
-                            style="width: 17%"
                         >
                             <label for="DateUpdated">Last Update Date</label>
                             <input 
@@ -318,6 +316,7 @@
                                 class="form-select bk"
                                 title=""
                                 asp-for="Client.Active"
+                                disabled
                             >
                                 <option
                                     value="true"
@@ -333,6 +332,7 @@
                                 class="form-select bk"
                                 title=""
                                 asp-for="Client.Active"
+                                disabled
                             >
                                 @if (Model.Client.Active == true) {
                                 <option
@@ -369,14 +369,22 @@
                 </button>
                 @if (Model.Client.Client_Id != 0)
                 {
-                <a
-                    href="/Client/ConsultClient?Client_Id=@Model.Client.Client_Id"
-                    class="btn btn-primary text-white"
-                    title="Check client data"
-                    style="margin-left: 5px"
-                >
-                    Consult Client
-                </a>
+                    <a
+                        href="/Client/ConsultClient?Client_Id=@Model.Client.Client_Id"
+                        class="btn btn-primary text-white"
+                        title="Check client data"
+                        style="margin-left: 5px"
+                    >
+                        Consult Client
+                    </a>
+                    <a 
+                        href="/Client/DisableClient?Client_Id=@Model.Client.Client_Id"
+                        class="btn btn-danger text-white btn-gral"
+                        style="margin-left:5px"
+                        title="Button to disable the Client"
+                    >
+                        Disable
+                    </a>                    
                 }
                 <a
                     href="/Client/ClientList/"
