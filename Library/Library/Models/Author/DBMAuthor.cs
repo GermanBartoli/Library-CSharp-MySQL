@@ -249,7 +249,7 @@ public class DBMAuthor
             string consult =
             "SELECT " +
                 "MAX(author_id) " +
-            "FROM Author";
+            "FROM Authors";
 
             MySqlCommand command = new MySqlCommand(consult, connection);
             command.CommandType = CommandType.Text;
