@@ -81,13 +81,14 @@
                     value="@Model.Author.Author_Id"
                 />
                 }
-
+                @{
+                    int newAuthorId = Model.DBMAuthor.GetLastAuthorID() + 1;
+                    }
                 <fieldset class="scheduler-border" id="personal-information">
                     <legend class="scheduler-border text-red-1">
                         Personal Information
                     </legend>
                     <div class="row">
-                        @*
                         <div class="col-sm-1">
                             <label for="Author_Id">ID</label>
                             <input
@@ -95,13 +96,12 @@
                                 asp-for="Author.Author_Id"
                                 class="form-control bk"
                                 id="Author_Id"
-                                title="ID Author"
+                                title="Author ID"
                                 placeholder=""
-                                value="@Model.Author.Author_Id"
+                                value=@(Model.Author.Author_Id == 0 ? newAuthorId : Model.Author.Author_Id)
                                 readonly
                             />
                         </div>
-                        *@
 
                         <div class="col-sm-3">
                             <label for="Name">Name</label>
@@ -116,7 +116,7 @@
                                 autofocus 
                             />
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-1">
                             <label for="Nationality">Nationality</label>
                             <input
                                 type="text"
@@ -179,6 +179,7 @@
                                 class="form-select bk"
                                 title=""
                                 asp-for="Author.Active"
+                                disabled
                             >
                                 <option value="true" selected>Yes</option>
                                 <option value="false">No</option>
@@ -189,6 +190,7 @@
                                 class="form-select bk"
                                 title=""
                                 asp-for="Author.Active"
+                                disabled
                             >
                                 @if (Model.Author.Active == true) {
                                 <option value="true" selected>Yes</option>
@@ -218,9 +220,18 @@
                         href="/Author/ConsultAuthor?Author_Id=@Model.Author.Author_Id" 
                         class="btn btn-primary text-white"
                         title="Consult Author data" 
-                        style="margin-left:5px;">
+                        style="margin-left:5px"
+                    >
                             Consult Author
                     </a>
+                    <a 
+                        href="/Author/DisableAuthor?Author_Id=@Model.Author.Author_Id"
+                        class="btn btn-danger text-white btn-gral"
+                        style="margin-left:5px"
+                        title="Button to disable the Author"
+                    >
+                        Disable
+                    </a>                    
                 }
                 <a 
                     href="/Author/AuthorList/"
