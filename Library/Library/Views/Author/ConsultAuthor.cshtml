@@ -123,7 +123,7 @@
                                 readonly
                             />
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-1">
                             <label for="Nationality">Nationality</label>
                             <input
                                 type="text"
@@ -232,13 +232,20 @@
                     </div>
                 </fieldset>
                 <br />
-
                 <a
                     href="/Author/NewAuthor?Author_Id=@Model.Author.Author_Id"
                     class="btn btn-warning text-white btn-gral"
                     title="Button to edit Author data"
                 >
                     Edit
+                </a>
+                <a 
+                    href="/Author/DisableAuthor?Author_Id=@Model.Author.Author_Id"
+                    class="btn btn-danger text-white btn-gral"
+                    style="margin-left:5px"
+                    title="Button to disable the Author"
+                >
+                    Disable
                 </a>
                 <a
                     href="/Author/AuthorList/"
@@ -248,7 +255,6 @@
                 >
                     Back to the list of Authors
                 </a>
-                <br />
             </div>
         </div>
     </div>
