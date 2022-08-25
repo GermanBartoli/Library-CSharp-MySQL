@@ -292,7 +292,7 @@ public class DBMClient
             string consult =
                 "SELECT " +
                     "MAX(client_id) " +
-                "FROM Client";
+                "FROM Clients";
 
             MySqlCommand command = new MySqlCommand(consult, connection);
             command.CommandType = CommandType.Text;
