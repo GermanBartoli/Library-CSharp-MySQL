@@ -13,7 +13,7 @@ public class TransactionController : Controller
     {
         DTOModel dto = new();
 
-        // dto.TransactionList = dBMTransaction.LoadTransactionList();
+        dto.TransactionList = dBMTransaction.LoadTransactionList();
 
         return View(dto);
     }
@@ -21,7 +21,7 @@ public class TransactionController : Controller
     [HttpPost]
     public IActionResult TransactionList(DTOModel dto)
     {
-        dto.ClientList = new();
+        dto.TransactionList = new();
 
         return View(dto);
     }
