@@ -45,8 +45,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Client Name</th>
-                        <th>Book Name</th>
+                        <th>Client</th>
+                        <th>Book</th>
                         <th>Date</th>
                         <th>Estate</th>
                         <th>Finished</th>
@@ -60,9 +60,15 @@
                             <td>@transaction.Transaction_Id</td>
                             <td>@transaction.Client.Name</td>
                             <td>@transaction.Book.Title</td>
-                            <td>@transaction.Date</td>
+                            <td>@transaction.Created_at</td>
                             <td>@transaction.Estate</td>
-                            <td>@transaction.Finished</td>
+                            @if (transaction.Finished is true)
+                            {
+                                 <td>Yes</td>
+                            } else
+                            {
+                                <td>No</td>
+                            }                            
                             <td style="width:25%;">
                                 <a 
                                     href="/Transaction/NewTransaction?Transaction_Id=@transaction.Transaction_Id"
