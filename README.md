@@ -1,4 +1,4 @@
-# Introduction MySQL Platzi
+# Introduction MySQL
 
 <a href="https://wakatime.com/@bartoligerman497">
   <img 
