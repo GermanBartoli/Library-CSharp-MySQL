@@ -40,5 +40,5 @@
 ## Transaction
 ![Transaction Management](https://user-images.githubusercontent.com/53313625/200138543-40be448b-2cb7-4ca3-9728-f3c0f1c541b8.png)
 
-## Otros
+## Others
 ![Tabla Libros con Command Line](https://user-images.githubusercontent.com/53313625/179322557-0a71c2da-b9af-4ceb-b5fd-4ebe02d98231.png)
