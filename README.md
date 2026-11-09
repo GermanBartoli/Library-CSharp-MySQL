@@ -1,7 +1,29 @@
-# Introduction MySQL
+# Biblioteca · C# y MySQL
+
+**Aplicación de biblioteca para practicar clientes, autores, libros y transacciones con C# y MySQL.**
+
+[![Repositorio](https://img.shields.io/badge/GitHub-GermanBartoli-181717?logo=github)](https://github.com/GermanBartoli/Library-CSharp-MySQL)
+
+[Empezar](#primeros-pasos) · [Mapa del repositorio](#mapa-del-repositorio) · [Autoría](#autoría-de-esta-documentación)
+
+![Guía visual: Biblioteca · C# y MySQL](docs/readme/guia.svg)
+
+*Esquema de orientación; no representa una captura de la aplicación.*
+
+## Primeros pasos
+
+1. Abrí `Library/Library.sln` y revisá los requisitos de su proyecto.
+2. Consultá los scripts en `BDS/` y prepará una base local; adaptá la conexión sin publicar credenciales.
+3. Recorré clientes, autores y libros antes de probar una transacción. Las capturas originales están en `Fotos y PDF/`.
+
+## Entorno de aprendizaje
+
+Este repositorio conserva ejercicios y versiones de su etapa de estudio. Revisá los archivos de proyecto para preparar el SDK, runtime o servidor correspondiente; esta actualización del README no migra dependencias ni acredita una ejecución reciente de todos los ejemplos.
+
+## Referencia y detalles
 
 <a href="https://wakatime.com/@bartoligerman497">
-  <img 
+  <img
     src="https://wakatime.com/badge/user/007a853f-0752-4493-a031-cf70b329845c/project/a4082edd-08b4-488e-b92c-252e88e8d95b.svg"
     alt="wakatime"
   >
@@ -15,10 +37,10 @@
   - [Client](#client)
   - [Author](#author)
   - [Book](#book)
-  - [Transaction](#transaction)  
+  - [Transaction](#transaction)
   - [Otros](#otros)
 
-# Images
+## Images
 
 ## Client
 ![Client Management](https://user-images.githubusercontent.com/53313625/200138596-fdad3897-ef4f-4233-a941-566eaa0c676a.png)
@@ -42,3 +64,16 @@
 
 ## Others
 ![Tabla Libros con Command Line](https://user-images.githubusercontent.com/53313625/179322557-0a71c2da-b9af-4ceb-b5fd-4ebe02d98231.png)
+
+## Mapa del repositorio
+
+- [Library/Library.sln](<Library/Library.sln>)
+- [Library/Library/Library.csproj](<Library/Library/Library.csproj>)
+- [LICENSE](<LICENSE>)
+- [Library/Library/Program.cs](<Library/Library/Program.cs>)
+
+## Autoría de esta documentación
+
+Repositorio mantenido por [Germán Bartoli](https://github.com/GermanBartoli). Guía revisada y actualizada con **Codex**, coautor de esta actualización documental. Los autores, colaboradores, licencias y recursos de terceros conservan sus créditos originales.
+
+Los commits de esta revisión incluyen `Co-authored-by: Codex <noreply@openai.com>`; esta atribución no modifica la autoría del historial anterior.
